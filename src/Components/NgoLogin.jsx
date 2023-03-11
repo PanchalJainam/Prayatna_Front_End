@@ -10,7 +10,7 @@ import {
   InputAdornment,
   Button,
 } from "@mui/material";
-import Logo from "../images/1-removebg-preview.png";
+import Logo from "../Images/1-removebg-preview.png";
 import MailIcon from '@mui/icons-material/Mail';
 import LockIcon from "@mui/icons-material/Lock";
 import LoginIcon from "@mui/icons-material/Login";
@@ -101,7 +101,7 @@ const Login = () => {
                 variant="contained"
                 endIcon={<LoginIcon />}
                 sx={{
-                  margin: "3vh auto",
+                  margin: "3vh",
                   width: "34vh",
                   borderRadius: "7px",
                   fontSize: "2vh",

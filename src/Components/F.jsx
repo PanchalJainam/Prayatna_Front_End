@@ -2,7 +2,7 @@ import React from "react";
 import "./F.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DoneIcon from "@mui/icons-material/Done";
-import Logo from "./../images/Prayatan.png";
+import Logo from "./../Images/Prayatan.png";
 import { NavLink } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";

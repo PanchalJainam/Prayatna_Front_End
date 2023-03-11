@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../Components/Navbar";
 import Carousel from "../Components/Carousel";
 import Steps from "./Steps/Steps";
+import F from "../Components/F";
+import NgoLogin from "../Components/NgoLogin";
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
         <h3 className="text-center">Guidance Page</h3>
       </div>
       <Steps />
+      <F/>
+      <NgoLogin/>
       {/* </div> */}
     </>
   );
