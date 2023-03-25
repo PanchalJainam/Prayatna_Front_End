@@ -22,6 +22,8 @@ const SignIn = () => {
       }),
     });
 
+    console.log({ res });
+
     const data = res.json();
     if (!data) {
       alert("All Fields are required");

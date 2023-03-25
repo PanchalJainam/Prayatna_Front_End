@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./NgoLogin.css";
 import {
@@ -16,8 +16,28 @@ import LoginIcon from "@mui/icons-material/Login";
 import { Email } from "@mui/icons-material";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
+  const [login, setLogin] = useState({
+    email: "",
+    password: "",
+  });
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setLogin((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
+
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const { email, password } = login;
+    const res = await axios.post("/login", { email, password });
+    const { token } = res.data;
+    localStorage.setItem("token", token);
+    console.log({ res });
+  };
   return (
     <>
       <Navbar />
@@ -56,12 +76,14 @@ const Login = () => {
           >
             Login
           </Typography>
-          <form action="">
+          <form onSubmit={handleFormSubmit}>
             <div className="l-form-field">
               <TextField
                 id="input-with-icon-textfield"
                 type={Email}
                 label="Email"
+                name="email"
+                onChange={handleInputChange}
                 required
                 InputProps={{
                   startAdornment: (
@@ -82,6 +104,8 @@ const Login = () => {
                 id="input-with-icon-textfield"
                 label="Password"
                 required
+                name="password"
+                onChange={handleInputChange}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -99,6 +123,7 @@ const Login = () => {
             </div>
             <div className="l-link-container">
               <Button
+                type="submit"
                 variant="contained"
                 endIcon={<LoginIcon />}
                 sx={{
@@ -108,13 +133,7 @@ const Login = () => {
                   fontSize: "2vh",
                 }}
               >
-                <Link
-                  className="l-login-btn"
-                  to="/"
-                  style={{ textDecoration: "none", color: "White" }}
-                >
-                  Login
-                </Link>
+                Login
               </Button>
               <Link className="l-forgot-password" to="/ngologin/forgot">
                 Forgot Password?

@@ -1,7 +1,6 @@
 import React from "react";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import "./Steps.css";
-import step from "../../Images/pic_8.png";
 import video from "../Steps/Login.mp4";
 const Steps = () => {
   return (
@@ -13,13 +12,7 @@ const Steps = () => {
           </div> */}
           <div className="col col-4 col-lg-6 col-sm-12 col-md-6 steps-container "></div>
           <div className="col col-lg-6 col-sm-12 col-md-6 video-container ">
-            <video
-              autoPlay
-              loop
-              style={{ width: "100%" }}
-              muted
-              poster="https://assets.codepen.io/6093409/river.jpg"
-            >
+            <video autoPlay loop style={{ width: "100%" }} muted>
               <source src={video} type="video/mp4" />
             </video>
           </div>
