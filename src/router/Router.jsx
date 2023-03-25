@@ -4,7 +4,14 @@ import Home from "../Pages/Home.js";
 import About from "../Pages/About";
 import Signup from "../Pages/Signup";
 import SignIn from "../Pages/SignIn";
-import Card from "../Components/Card.jsx";
+// import Card from "../Components/Card.jsx";
+import Search from "../Components/Search/Search.jsx";
+import NgoLogin from "../Components/Login/NgoLogin";
+import Mydata from "../Components/NGOdeshboeard/Mydata.jsx";
+import Update from "../Components/NGOdeshboeard/Update.jsx";
+// import volunteer from "../Components/Volunteer";
+import Volunteer from "../Components/Volunteer/Volunteer";
+import Reg from "../Components/Registration/Reg.jsx";
 
 export const Router = () => {
   return (
@@ -19,14 +26,26 @@ export const Router = () => {
           <Route path="/about">
             <Route index element={<About />} />
           </Route>
+          <Route path="/search">
+            <Route index element={<Search />} />
+          </Route>
           <Route path="/registration">
-            <Route index element={<Signup />} />
+            <Route index element={<Reg />} />
           </Route>
           <Route path="/login">
             <Route index element={<SignIn />} />
           </Route>
-          <Route path="/Ngo">
-            <Route index element={<Card />} />
+          <Route path="/ngologin">
+            <Route index element={<NgoLogin />} />
+          </Route>
+          <Route path="/volunteer">
+            <Route index element={<Volunteer />} />
+          </Route>
+          <Route path="/myprofile">
+            <Route index element={<Mydata />} />
+          </Route>
+          <Route path="/myprofile/edit">
+            <Route index element={<Update />} />
           </Route>
         </Routes>
       </BrowserRouter>

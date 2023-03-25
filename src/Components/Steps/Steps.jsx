@@ -1,12 +1,12 @@
 import React from "react";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import "../Steps/Steps.css";
+import "./Steps.css";
 import step from "../../Images/pic_8.png";
 import video from "../Steps/Login.mp4";
 const Steps = () => {
   return (
     <>
-      <div className="container-fluid main-container">
+      <div className="container-fluid steps-main-container">
         <div className="row mt-3 mb-3">
           {/* <div className="col-2 col-sm-12 step-container ">
             <img src={step} className="img-fluid" alt="..." />

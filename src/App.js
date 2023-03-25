@@ -1,5 +1,6 @@
 import "./App.css";
 import Router from "./router/Router";
+import Volunteer from "./Components/Volunteer/Volunteer.jsx";
 // import "../public/style.css";
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import Home from "./Pages/Home";
@@ -32,6 +33,7 @@ const App = () => {
         </Routes>
       </BrowserRouter> */}
       <Router />
+        {/* <Volunteer/> */}
     </>
   );
 };

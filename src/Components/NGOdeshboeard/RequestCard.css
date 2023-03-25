@@ -1,0 +1,22 @@
+.Card-container{
+    /* border: 1px solid black; */
+    min-height: 300px;
+    margin-top: 25px;
+    padding: 20px;
+    max-width: auto;
+}
+
+.No-request-container{
+    color: rgb(137, 135, 135);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    opacity: 1;
+    animation: fade 3s infinite;
+}
+
+@keyframes fade {
+    0%,100% { opacity: 0 }
+    50% { opacity: 1 }
+  }

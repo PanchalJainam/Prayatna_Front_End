@@ -1,14 +1,13 @@
 import React from "react";
+import Search from "../Components/Search/Search";
 import Navbar from "../Components/Navbar/Navbar";
-// import Navbar from "../Components/Navbar";
-
-const About = () => {
+const Searchbar = () => {
   return (
     <>
       <Navbar />
-      <h5>About Page</h5>
+      <Search />
     </>
   );
 };
 
-export default About;
+export default Searchbar;

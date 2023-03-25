@@ -11,37 +11,6 @@ body {
   height: 100vh;
 }
 
-.container {
-  background-color: transparent;
-}
-
-.navbar-brand {
-  color: blue;
-}
-
-nav {
-  color: white;
-}
-
-.nav-item {
-  color: blue;
-}
-
-.col_1 {
-  background-image: url(./Images/1.jpg);
-  /* background-image: linear-gradient(#f869d5, #5650de);
-  margin-top: 10px; */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  /* border-radius: 10px; */
-  /* box-shadow: -10px -10px 65px #ecf0f1, 20px 20px 65px #ecf0f1; */
-}
-
-::placeholder {
-  color: rgb(84, 206, 236);
-  font-weight: 500;
-}
 
 /* //Login Css */
 
@@ -65,7 +34,14 @@ nav {
 .fa-android {
   font-size: 3em;
 }
+
+
 @media screen and (max-width: 640px) {
+  .logo {
+    margin-left: 10px;
+  }
+  
+
   .main-content {
     width: 90%;
   }
@@ -124,6 +100,10 @@ form {
 }
 
 @media (min-width: "420px") {
+  .logo {
+    margin-left: 10px;
+  }
+
   .col-sm-12 {
     flex: 0 0 auto !important;
     width: 100% !important;
@@ -132,18 +112,33 @@ form {
 
 /* ************************ Registration Design************************** */
 
+.Reg_container{
+  border:1px solid black;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
 .container_signup input,
 input {
   background-color: #fff;
   width: 100%;
   padding: 0.8em;
   border: 2px solid black;
+  /* border-bottom: 1px solid black; */
   outline: none;
   border-radius: 50px;
 }
+.col_1 {
+  background-image: url(./Images/volunteer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 50px;
+}
 
 .container h4 {
-  color: rgb(84, 206, 236);
+  /* color: rgb(84, 206, 236); */
+  color: #1f1f1f;
   margin: 5px 0;
   font-weight: bold;
   font-size: 2rem;
@@ -164,11 +159,20 @@ input {
 .container_signup button {
   padding: 8px 5px;
   width: 80%;
-  border: none;
+  border: 2px solid #0b4078;
   outline: none;
-  color: white;
-  background-color: rgb(84, 206, 236);
+  color: #0b4078;
+  font-size: 18px;
+  font-weight: 600;
   border-radius: 0.5em;
+  transition: all 0.1s;
+  transition-timing-function: ease-in-out;
+}
+
+.container_signup button:hover {
+  border: none;
+  background-color: #0b4078;
+  color: white;
 }
 
 form {
@@ -213,3 +217,9 @@ form {
     display: flex !important;
   }
 }
+
+/*  Search  */
+
+
+/*============= volunteer form============== */
+

@@ -1,23 +1,23 @@
 import React from "react";
-import "./F.css";
+import "./Footer.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DoneIcon from "@mui/icons-material/Done";
-import Logo from "./../Images/Prayatan.png";
-import { NavLink } from "react-router-dom";
+import Logo from "../../Images/Prayatan.png";
+import { Link } from "react-router-dom";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
-const F = () => {
+const Footer = () => {
   return (
     <>
       <footer className="container-fluid footer-container">
-        <div className="container first-container">
-          <div className="first-container-content">
+        <div className="container f-first-container">
+          <div className="f-first-container-content">
             <h1 className="text-center" style={{ marginTop: "17px" }}>
               Register Your NGO with Us
             </h1>
-            <div className=" heading-content">
+            <div className=" f-heading-content">
               <p className=" ">
                 <DoneIcon />
                 Free To Use
@@ -31,14 +31,16 @@ const F = () => {
                 Help To Others
               </p>
             </div>
-            <button type="submit" className="text-center btn-register">
+            <Link to="/registration">
+            <button type="submit" className="text-center f-btn-register">
               Register NGO
             </button>
+            </Link>
           </div>
         </div>
-        <div className="second-container container-fluid">
+        <div className="f-second-container container-fluid">
           <div className="row m-3" style={{ width: "100%" }}>
-            <div className="col-lg-3  col-md-6 col-sm-12 mission-container">
+            <div className="col-lg-3  col-md-6 col-sm-12 f-mission-container">
               <img
                 src={Logo}
                 alt="Logo Of prayatna"
@@ -52,65 +54,62 @@ const F = () => {
                 hand up and hand out.
               </p>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 quick-access">
+            <div className="col-lg-3 col-md-6 col-sm-12 f-quick-access">
               <h3>Quick Access</h3>
-              <NavLink
+              <Link
                 style={{
                   textDecoration: "none",
                   color: "white",
                   fontSize: "15px",
                 }}
-                to="/home"
-                activeClassName="link"
+                to="/"
+                
               >
                 Home
-              </NavLink>
-              <NavLink
+              </Link>
+              <Link
                 style={{
                   textDecoration: "none",
                   color: "white",
                   fontSize: "15px",
                 }}
                 to="/about"
-                activeClassName="link"
+               
               >
                 About Us
-              </NavLink>
-              <NavLink
+              </Link>
+              <Link
                 style={{
                   textDecoration: "none",
                   color: "white",
                   fontSize: "15px",
                 }}
                 to="/contact"
-                activeClassName="link"
               >
                 Contact Us
-              </NavLink>
-              <NavLink
+              </Link>
+              <Link
                 style={{
                   textDecoration: "none",
                   color: "white",
                   fontSize: "15px",
                 }}
                 to="/search"
-                activeClassName="link"
               >
                 Search
-              </NavLink>
-              <NavLink
+              </Link>
+              <Link
                 style={{
                   textDecoration: "none",
                   color: "white",
                   fontSize: "15px",
                 }}
                 to="/guide"
-                activeClassName="link"
               >
                 Guide
-              </NavLink>
+              </Link>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 activity-container">
+            <div className="col-lg-3 col-md-6 col-sm-12 f-activity-container">
               <h3>Activities</h3>
               <ul>
                 <li>Education</li>
@@ -121,7 +120,7 @@ const F = () => {
                 <li>Etc...</li>
               </ul>
             </div>
-            <div className="col-lg-3 col-md-6 col-sm-12 follow-container">
+            <div className="col-lg-3 col-md-6 col-sm-12 f-follow-container">
               <h3>Follow Us</h3>
               <div>
                 <InstagramIcon />
@@ -137,4 +136,4 @@ const F = () => {
   );
 };
 
-export default F;
+export default Footer;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../Components/Navbar";
+import Navbar from "../Components/Navbar/Navbar";
 // import { Link } from "react-router-dom";
 
 const SignIn = () => {
@@ -45,41 +45,38 @@ const SignIn = () => {
     // }
   };
 
-
-
   // Krupa Login Code ..
 
-//   router.post('/login', (req, res) => {
-//     const user = req.body;
-//     quary = "select user_email,user_password from user where user_email=?";
-//     connection.query(quary, [user.user_email], (err, results) => {
-//         if (!err) {
-//             if (results.length <= 0 || results[0].user_password != user.user_password) {
-//                 return res.status(401).json({ message: "Incorrect username or password" });
-//             }
-//             else if (results[0].user_password == user.user_password) {
-//                 const response = { user_email: results[0].user_email }
-//                 const accessToken = jwt.sign(response,secretkey, { expiresIn: '8h' })
-//                 res.status(200).json({ token: accessToken });
-//             }
-//             else {
-//                 return res.status(400).json({ message: "something went long please try gain later" });
-//             }
-//         }
-//         else {
-//             return res.status(500).json(err);
-//         }
-//     });
-// });
+  //   router.post('/login', (req, res) => {
+  //     const user = req.body;
+  //     quary = "select user_email,user_password from user where user_email=?";
+  //     connection.query(quary, [user.user_email], (err, results) => {
+  //         if (!err) {
+  //             if (results.length <= 0 || results[0].user_password != user.user_password) {
+  //                 return res.status(401).json({ message: "Incorrect username or password" });
+  //             }
+  //             else if (results[0].user_password == user.user_password) {
+  //                 const response = { user_email: results[0].user_email }
+  //                 const accessToken = jwt.sign(response,secretkey, { expiresIn: '8h' })
+  //                 res.status(200).json({ token: accessToken });
+  //             }
+  //             else {
+  //                 return res.status(400).json({ message: "something went long please try gain later" });
+  //             }
+  //         }
+  //         else {
+  //             return res.status(500).json(err);
+  //         }
+  //     });
+  // });
 
   ////
-
 
   return (
     <>
       <Navbar />
       <div className="container container_signup ">
-        <h4 className="text-center pt-2">Ngo LogiIn Form</h4>
+        <h4 className="text-center pt-2">Ngo Login</h4>
 
         <div className="row container align-items-center">
           <div className="col">

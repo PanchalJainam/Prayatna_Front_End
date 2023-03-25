@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Navbar from "../Components/Navbar";
+import Navbar from "../Components/Navbar/Navbar";
 
 // import pic from "../Images/1.jpg";
 // "proxy":"http://localhost:5000/",
@@ -208,8 +208,8 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <div className="container mt-4 my-4">
-        <h4 className="text-center mt-4 my-3">Ngo Registration Form</h4>
+      <div className="container mt-4 my-4 Reg_container">
+        <h4 className="text-center mt-4 my-3">Ngo Registration </h4>
         <div className="row align-item-center container_signup ">
           {/* <div className="col images text-center">
             <img
@@ -224,10 +224,10 @@ const Signup = () => {
             {/* <img src={pic} className="img-fluid" alt="..." /> */}
           </div>
 
-          <div className="col col_2 col-md-6 col-sm-12 col_2 ">
+          <div className="col-12 col_2 col-md-6 col-sm-12 col_2 ">
             <form method="POST" onSubmit={PostData} auto-Complete="off">
               <div className="detail_from">
-                <lable htflFor="ngo_name">Enter Name : </lable>
+                <lable htflFor="ngo_name">Name : </lable>
                 <br />
                 <input
                   type="text"
@@ -241,7 +241,7 @@ const Signup = () => {
                 <span id="ngo" className="text-danger"></span>
               </div>
               <div className="detail_from">
-                <lable htflFor="email">Enter Email : </lable>
+                <lable htflFor="email">Email : </lable>
                 <br />
                 <input
                   type="email"
@@ -255,7 +255,7 @@ const Signup = () => {
                 <span id="emails" className="text-danger"></span>
               </div>
               <div className="detail_from">
-                <lable htflFor="head_name">Enter Trustee Name : </lable>
+                <lable htflFor="head_name">NGO Trustee Name : </lable>
                 <br />
                 <input
                   type="text"
@@ -269,7 +269,7 @@ const Signup = () => {
                 <span id="heads" className="text-danger"></span>
               </div>
               <div className="detail_from">
-                <label htflFor="address">Enter Address : </label>
+                <label htflFor="address">Address : </label>
                 <br />
                 <textarea
                   name="address"
@@ -281,7 +281,7 @@ const Signup = () => {
                 <span id="add" className="text-danger"></span>
               </div>
               <div className="detail_from">
-                <lable htflFor="activity">Enter Activity : </lable>
+                <lable htflFor="activity">Activity : </lable>
                 <br />
                 <input
                   type="text"
@@ -295,7 +295,7 @@ const Signup = () => {
                 <span id="activities" className="text-danger"></span>
               </div>
               <div className="detail_from">
-                <lable htflFor="password">Enter Password : </lable>
+                <lable htflFor="password">Password : </lable>
                 <br />
                 <input
                   type="password"
@@ -309,7 +309,7 @@ const Signup = () => {
                 <span id="pwd" className="text-danger"></span>
               </div>
               <div className="detail_from">
-                <lable htflFor="cpassword">Enter Confirm Password : </lable>
+                <lable htflFor="cpassword">Confirm Password : </lable>
                 <br />
                 <input
                   type="password"
