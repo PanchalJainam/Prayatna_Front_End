@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home.js";
 import About from "../Pages/About";
-import Signup from "../Pages/Signup";
-import SignIn from "../Pages/SignIn";
+// import Signup from "../Pages/Signup";
+// import SignIn from "../Pages/SignIn";
 // import Card from "../Components/Card.jsx";
 import Search from "../Components/Search/Search.jsx";
 import NgoLogin from "../Components/Login/NgoLogin";
@@ -11,7 +11,8 @@ import Mydata from "../Components/NGOdeshboeard/Mydata.jsx";
 import Update from "../Components/NGOdeshboeard/Update.jsx";
 // import volunteer from "../Components/Volunteer";
 import Volunteer from "../Components/Volunteer/Volunteer";
-import Reg from "../Components/Registration/Reg.jsx";
+// import Reg from "../Components/Registration/Reg.jsx";
+import Toggle from "../Components/Toggle/Toggle.js";
 
 export const Router = () => {
   return (
@@ -30,12 +31,12 @@ export const Router = () => {
             <Route index element={<Search />} />
           </Route>
           <Route path="/registration">
-            <Route index element={<Reg />} />
+            <Route index element={<Toggle />} />
           </Route>
-          <Route path="/login">
+          {/* <Route path="/login">
             <Route index element={<SignIn />} />
-          </Route>
-          <Route path="/ngologin">
+          </Route> */}
+          <Route path="/login">
             <Route index element={<NgoLogin />} />
           </Route>
           <Route path="/volunteer">

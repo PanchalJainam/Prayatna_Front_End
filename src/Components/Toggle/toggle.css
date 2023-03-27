@@ -1,0 +1,26 @@
+/* body {
+  background-color: red;
+} */
+
+.main_div {
+  background-color: aliceblue;
+  height: auto;
+}
+
+.chk_lbl {
+  margin-top: 4.5px;
+  margin-left: 5.5px;
+}
+
+.radios {
+  justify-content: center;
+  align-items: center;
+}
+
+.checks {
+  padding-bottom: 5px;
+}
+
+.check_2 {
+  margin-left: 17px;
+}

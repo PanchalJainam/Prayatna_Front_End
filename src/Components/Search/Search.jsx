@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import axios from "axios";
 import Navbar from "../Navbar/Navbar";
 import "./Search.css";
+import NgoCard from "../Cards/NgoCard";
+const API = "http://localhost:5000/regngos";
 const Search = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get(API)
+      .then((res) => setData(res.data))
+      .catch((e) => console.log(e));
+  }, []);
   return (
     <>
       <Navbar />
@@ -21,6 +31,7 @@ const Search = () => {
           </button>
         </div>
       </div>
+      <NgoCard ngo={data} />
     </>
   );
 };

@@ -1,0 +1,12 @@
+.user_form {
+  width: 60%;
+  margin: auto;
+}
+
+.reg-Reg_btn {
+  border: none;
+  width: 250px;
+  padding: 10px 60px;
+  border-radius: 15px;
+  font-size: 18px;
+}

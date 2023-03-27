@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import "./Reg.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { toast } from "react-toastify";
 import { Alert, Button, IconButton, Snackbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Reg = () => {
+  const navigate = useNavigate();
   const [regData, setRegData] = useState({
     ngo_name: "",
     head_name: "",
@@ -57,6 +59,7 @@ const Reg = () => {
         message: "Otp verified",
         status: "success",
       });
+      navigate("/login");
     } else {
       setMessage({
         open: true,
@@ -79,6 +82,13 @@ const Reg = () => {
   };
 
   const handleFormSubmit = async (e) => {
+    if (regData === "") {
+      setMessage({
+        open: true,
+        message: "All Fields Are Must be Required",
+        status: "error",
+      });
+    }
     try {
       e.preventDefault();
       const formData = new FormData();

@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   /* height: 700px; */
-  background-color: snow;
+  /* background-color: snow; */
 }
 .reg-sub_container {
   /* border: 1px solid black; */
@@ -27,7 +27,7 @@
     justify-content: center;
     border: 1px solid white; */
 }
-.reg-form-container{
+.reg-form-container {
   width: 100%;
 }
 .reg-btn_access {
@@ -56,11 +56,11 @@ textarea {
   width: 250px;
   padding: 10px 60px;
   border-radius: 15px;
-  font-size:18px ;
+  font-size: 18px;
 }
 
-.reg-Reg_btn:hover{
-    background-color: #548BB3;
+.reg-Reg_btn:hover {
+  background-color: #548bb3;
 }
 /* *{
     color:white
