@@ -8,6 +8,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
+import { Button } from "@mui/material";
 const Footer = () => {
   return (
     <>
@@ -31,10 +32,13 @@ const Footer = () => {
                 Help To Others
               </p>
             </div>
-            <Link to="/registration">
-            <button type="submit" className="text-center f-btn-register">
+            <Link to="/registration" style={{textDecoration:"none"}}>
+            {/* <button type="submit" className="text-center f-btn-register">
               Register NGO
-            </button>
+            </button> */}
+              <Button variant="contained" color="primary" sx={{fontSize:"18px",marginTop:"8px"}}>
+                Be come Volunteer
+              </Button>
             </Link>
           </div>
         </div>

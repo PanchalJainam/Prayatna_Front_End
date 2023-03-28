@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home.js";
 import About from "../Pages/About";
-import Signup from "../Pages/Signup";
+// import Signup from "../Pages/Signup";
 import SignIn from "../Pages/SignIn";
 // import Card from "../Components/Card.jsx";
 import Search from "../Components/Search/Search.jsx";

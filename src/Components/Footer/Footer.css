@@ -109,6 +109,9 @@
   .f-second-container {
     height: 1000px;
   }
+  .f-first-container-content h1{
+    font-size: 40px;
+  }
 }
 
 @media (max-width: 576px) {

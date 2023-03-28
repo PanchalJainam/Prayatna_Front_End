@@ -52,7 +52,7 @@
     margin-left: 15px;
     /* margin-top: 5px; */
     z-index: 1000;
-    margin-top: -16px;
+    margin-top: 10px;
   }
   
   .dropdown_main {
@@ -138,7 +138,8 @@
     .wrap_nav,
     .wrap_login {
       margin-left: 0;
-      margin-top: 0;
+      /* margin-top: 0; */
+      z-index: 2000;
     }
     .dropdown_main {
       display: flex;

@@ -68,19 +68,19 @@ const Volunteer = () => {
                     <div className="form-check form-check-inline mb-0 me-4">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
                         value="option1" />
-                    <label className="form-check-label mt-1 vol-gender vol-label_gender" for="femaleGender">Female</label>
+                    <label className="form-check-label mt-1 gender vol-label_gender" for="femaleGender">Female</label>
                     </div>
 
                     <div className="form-check form-check-inline mb-0 me-4">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
                         value="option2" />
-                    <label className="form-check-label mt-1 gender label_gender" for="maleGender">Male</label>
+                    <label className="form-check-label mt-1 gender vol-label_gender" for="maleGender">Male</label>
                     </div>
 
                     <div className="form-check form-check-inline mb-0">
                     <input className="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
                         value="option3" />
-                    <label className="form-check-label mt-1 gender label_gender" for="otherGender">Other</label>
+                    <label className="form-check-label mt-1 gender vol-label_gender" for="otherGender">Other</label>
                     </div>
 
                 </div>

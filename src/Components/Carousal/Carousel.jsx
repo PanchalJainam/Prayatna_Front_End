@@ -10,6 +10,7 @@ const Carousel = () => {
         id="carouselExampleCaptions"
         className="carousel slide"
         data-bs-ride="carousel"
+        style={{zIndex:"1"}}
       >
         <div className="carousel-indicators">
           <button

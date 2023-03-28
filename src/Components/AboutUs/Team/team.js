@@ -12,7 +12,7 @@ import EmailIcon from "@mui/icons-material/Email";
 const Team = () => {
   return (
     <section>
-      <div className="row team_title">
+      <div className="team_row team_title">
         <h1>Our Team</h1>
         <p className="text">
           We are a group of dedicated people who are passionate about making the
@@ -22,16 +22,16 @@ const Team = () => {
           and Values.
         </p>
       </div>
-      <div className="row">
+      <div className="team_row">
         {/* column 1 */}
         <div className="column">
-          <div className="card">
+          <div className="team_card">
             <div className="img-container">
               <img src={Jainam} alt="jainam" />
             </div>
             <h3>Jainam Panchal</h3>
             <p>Backend developer</p>
-            <div className="icons">
+            <div className="team_icons">
               <a href="/">
                 <GitHubIcon />
               </a>
@@ -52,13 +52,13 @@ const Team = () => {
         </div>
         {/* column 2 */}
         <div className="column">
-          <div className="card">
+          <div className="team_card">
             <div className="img-container">
               <img src={Jinil} alt="jainam" />
             </div>
             <h3>Jinil Mevada</h3>
             <p>Front end developer</p>
-            <div className="icons">
+            <div className="team_icons">
               <a href="/">
                 <GitHubIcon />
               </a>
@@ -79,13 +79,13 @@ const Team = () => {
         </div>
         {/* column 3 */}
         <div className="column">
-          <div className="card">
+          <div className="team_card">
             <div className="img-container">
               <img src={Vaibhav} alt="jainam" />
             </div>
             <h3>Vaibhav Devaliya</h3>
             <p>full-stack developer</p>
-            <div className="icons">
+            <div className="team_icons">
               <a href="/">
                 <GitHubIcon />
               </a>
