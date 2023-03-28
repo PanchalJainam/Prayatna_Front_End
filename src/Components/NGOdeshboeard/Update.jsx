@@ -3,7 +3,7 @@ import "./Update.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 const Update = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({});
   useEffect(() => {
     axios
       .get(`http://localhost:5000/regngos/64226c146859798f882e256d`)
@@ -12,14 +12,18 @@ const Update = () => {
   }, []);
 
   const handleUpdateForm = (e) => {
-    e.preventdefault();
+    e.preventDefault();
 
-    alert("hello");
     axios
-      .get(`http://localhost:5000/regngos/64226c146859798f882e256d` + data)
+      .put(`http://localhost:5000/regngos/64226c146859798f882e256d`, data)
       .then((res) => alert("Data Update Successfully"))
       .catch((e) => console.log(e));
   };
+
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   set;
+  // };
 
   return (
     <>
@@ -40,7 +44,7 @@ const Update = () => {
                   id="basic-url"
                   name="ngo_name"
                   value={data.ngo_name}
-                  onchange={(e) => setData(e.target.value)}
+                  // onchange={(e) => setData()}
                   size={40}
                   placeholder="Enter NGO Name"
                   aria-describedby="basic-addon3"
@@ -58,7 +62,7 @@ const Update = () => {
                   id="basic-url"
                   name="head_name"
                   value={data.head_name}
-                  onchange={(e) => setData(e.target.value)}
+                  // onchange={handleInputChange}
                   size={40}
                   placeholder="Enter HeadName"
                   aria-describedby="basic-addon3"
@@ -129,7 +133,7 @@ const Update = () => {
                 <button  type="button" className="btn up_submit_btn mt-2">Primary</button>
                 </div> */}
             <div class="d-grid col-6 mx-auto py-2">
-              <button class="up_submit_btn" type="button">
+              <button class="up_submit_btn" type="submit">
                 Update
               </button>
             </div>

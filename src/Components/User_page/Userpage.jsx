@@ -4,6 +4,7 @@ import { Alert, Button, IconButton, Snackbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import "./Userpage.css";
+import { DataArrayTwoTone } from "@mui/icons-material";
 
 const Userpage = () => {
   const navigate = useNavigate();
@@ -40,12 +41,14 @@ const Userpage = () => {
     // }
     try {
       e.preventDefault();
-      const formData = new FormData();
-      for (let v in user) {
-        formData.append(v, user[v]);
-      }
-      const res = await axios.post("/user-registration", formData);
-      console.log(res);
+      // const formData = new FormData();
+      // for (let v in user) {
+      //   formData.append(v, user[v]);
+      // }
+
+      console.log({ user });
+      const res = await axios.post("/user-registration", user);
+      console.log({ res });
       setMessage({
         open: true,
         message: "User registered successfully.",
