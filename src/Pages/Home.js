@@ -8,7 +8,7 @@ import Footer from "../Components/Footer/Footer.jsx";
 import Activity from "../Components/Activity/Activity";
 import SliderCard from "../Components/CardsUpdate/SliderCard";
 
-import NgoApi from "../Components/Fetch-Api/NgoApi";
+// import NgoApi from "../Components/Fetch-Api/NgoApi";
 
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
       <SliderCard/>
       <Activity/>
 
-      <NgoApi />
+      {/* <NgoApi /> */}
 
       <Footer />
       {/* <NgoLogin/> */}
