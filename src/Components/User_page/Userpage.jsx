@@ -11,7 +11,6 @@ const Userpage = () => {
     user_name: "",
     email: "",
     password: "",
-    cpassword: "",
     contact_number: "",
   });
 
@@ -32,13 +31,13 @@ const Userpage = () => {
   };
 
   const handleFormSubmit = async (e) => {
-    if (user === "") {
-      setMessage({
-        open: true,
-        message: "All Fields Are Must be Required",
-        status: "error",
-      });
-    }
+    // if (!user) {
+    //   setMessage({
+    //     open: true,
+    //     message: "All Fields Are Must be Required",
+    //     status: "error",
+    //   });
+    // }
     try {
       e.preventDefault();
       const formData = new FormData();
@@ -46,6 +45,7 @@ const Userpage = () => {
         formData.append(v, user[v]);
       }
       const res = await axios.post("/user-registration", formData);
+      console.log(res);
       setMessage({
         open: true,
         message: "User registered successfully.",
@@ -98,15 +98,10 @@ const Userpage = () => {
 
     if (res.data.success) {
       setUser({
-        ngo_name: "",
-        head_name: "",
+        user_name: "",
         email: "",
-        address: "",
-        activity: "",
-        password: "",
-        cpassword: "",
         contact_number: "",
-        document: "",
+        password: "",
       });
       setOtp("");
 
@@ -186,7 +181,7 @@ const Userpage = () => {
               placeholder="Password"
             />
           </div>
-          <div class="form-group">
+          {/* <div class="form-group">
             <label for="exampleInputPassword1">Confirm Password</label>
             <input
               type="password"
@@ -196,17 +191,13 @@ const Userpage = () => {
               id="exampleInputCPassword1"
               placeholder="Confirm Password"
             />
-          </div>
+          </div> */}
 
           <div className="container reg-btn_access p-2 mt-3">
             <button type="submit" className="reg-Reg_btn">
               Register
             </button>
           </div>
-
-          {/* <button type="submit" class="btn btn-primary mt-4">
-            Submit
-          </button> */}
         </form>
 
         {isOtp ? (

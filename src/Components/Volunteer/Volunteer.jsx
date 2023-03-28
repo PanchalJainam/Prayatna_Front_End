@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Help from "../../Images/volunteer_5.jpg";
 import "./Volunteer.css";
+import Navbar from "../Navbar/Navbar";
 const Volunteer = () => {
   const [choice, setChoice] = useState("");
   const [data, setData] = useState({
@@ -23,6 +24,7 @@ const Volunteer = () => {
 
   return (
     <>
+      <Navbar />
       <section className="h-100" style={{ backgroundColor: "#0b4078" }}>
         <form action="" method="post" className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-75">
@@ -224,7 +226,6 @@ const Volunteer = () => {
                       }}
                     />
                     <h5 className="mb-5 text-uppercase text-center">
-                      {" "}
                       make a positive difference in the world
                     </h5>
                   </div>
@@ -233,7 +234,7 @@ const Volunteer = () => {
             </div>
           </div>
         </form>
-      </section>{" "}
+      </section>
     </>
   );
 };
