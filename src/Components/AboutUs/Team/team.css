@@ -1,15 +1,15 @@
-/* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     /* font-family: "Poppins",sans-serif; */
-/* }  */
+}
 
-/* body{
+body{
     background-color: #f5f5f5;
-} */
+}
 
-.team_row{
+.row{
     /* border: 1px solid yellow; */
     display: flex;
     flex-wrap: wrap;
@@ -19,27 +19,27 @@
 
 }
 
-.text{
-    text-align: center;
-    margin-top: 20px;
-    color: initial;
+.text {
+  text-align: center;
+  margin-top: 20px;
+  color: initial;
 }
 
-.column{
-    width: 100%;
-    /* border: 1px solid black; */
-    padding: 0.5rem 0;
-    height: auto;
+.column {
+  width: 100%;
+  /* border: 1px solid black; */
+  padding: 0.5rem 0;
+  height: auto;
 }
 
-h1{
-    width: 100%;
-    text-align: center;
-    font-size: 3.5rem;
-    color: black;
+h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 3.5rem;
+  color: black;
 }
 
-.team_card{
+.card{
     box-shadow: 0 0 5rem rgba(25,0,58,0.1);
     padding: 3.5rem 1em;
     border-radius: 3rem;
@@ -50,7 +50,7 @@ h1{
     height: 500px;
 }
 
-.team_card .img-container{
+.card .img-container{
     width: 8em;
     height: 8em;
     /* background-color: grey; */
@@ -59,12 +59,12 @@ h1{
     margin: 0 auto 2em auto;
 }
 
-.team_card img{
+.card img{
     width: 100%;
     border-radius: 50%;
 }
 
-.team_card h3{
+.card h3{
     font-weight: 500;
     text-align: center;
     text-transform:uppercase;
@@ -74,7 +74,7 @@ h1{
     font-size: 20px;
 }
 
-.team_card p{
+.card p{
     font-weight: 300;
     text-transform:uppercase;
     margin: 0.5rem 0 2rem 0;
@@ -82,7 +82,7 @@ h1{
     text-align: center;
     color: black;
 }
-.team_icons{
+.icons{
     width: 50%;
     min-width: 180px;
     margin: auto;
@@ -91,51 +91,49 @@ h1{
     color: black;
 }
 
-.team_card a{
+.card a{
     text-decoration: none;
     color: inherit;
     font-size: 1.4rem;
 }
 
-.team_card:hover{
+.card:hover{
     background: linear-gradient(#f2edf9,#fffbee);
     color: #ffffff;
 }
 
-.team_card:hover .img-container{
+.card:hover .img-container{
     transform: scale(1.15);
 }
 
-@media screen and (min-width: 768px){
-    section{
-        padding: 1em 7em;
-    }  
+@media screen and (min-width: 768px) {
+  section {
+    padding: 1em 7em;
+  }
 }
 
-@media screen and (min-width:992px) {
-    section{
-        padding: 1em;
-    }
+@media screen and (min-width: 992px) {
+  section {
+    padding: 1em;
+  }
 
-    .team_card{
+    .card{
         padding: 5em 1em;
     }
 
-    .column{
-        flex: 0 0 33.33%;
-        max-width: 0 0 33.33%;
-        padding: 0 1em;
-
-    }
+  .column {
+    flex: 0 0 33.33%;
+    max-width: 0 0 33.33%;
+    padding: 0 1em;
+  }
 }
 
-@media screen and (max-width : 400px){
-    .team_title>h1{
-        font-size: 40px;
-    }
+@media screen and (max-width: 400px) {
+  .team_title > h1 {
+    font-size: 40px;
+  }
 
-    .team_title>p{
-        text-align: left;
-    }
-    
+  .team_title > p {
+    text-align: left;
+  }
 }

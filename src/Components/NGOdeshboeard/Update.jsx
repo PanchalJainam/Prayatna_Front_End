@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Update.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axios from "axios";
 const Update = () => {
+  const [data, setData] = useState({});
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/regngos/64226c146859798f882e256d`)
+      .then((res) => setData(res.data))
+      .catch((e) => console.log(e));
+  }, []);
+
+  const handleUpdateForm = (e) => {
+    e.preventDefault();
+
+    axios
+      .put(`http://localhost:5000/regngos/64226c146859798f882e256d`, data)
+      .then((res) => alert("Data Update Successfully"))
+      .catch((e) => console.log(e));
+  };
+
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   set;
+  // };
+
   return (
     <>
       <div className="container-fluid main_update_container mt-3">
@@ -9,50 +32,112 @@ const Update = () => {
           <h3 className=" h3 Profile_update">Update Profile</h3>
         </div>
         <div className="info_container shadow">
-            {/* <form action="" method="post"> */}
-                <div class="py-4 px-3 up-inp-container">
-                    <label for="basic-url" class="form-label">NGO Name</label>
-                    <div class="input-group">
-                    <input type="text" class="form-control" id="basic-url" size={40} placeholder="Enter NGO Name" aria-describedby="basic-addon3"/>
-                    </div>
-                </div>
-                <div className="mb-3 px-3">
-                    <label for="basic-url" class="form-label">Head Name</label>
-                    <div class="input-group">
-                    <input type="text" class="form-control" id="basic-url" size={40} placeholder="Enter HeadName" aria-describedby="basic-addon3"/>
-                    </div>
-                </div>
-                <div className="mb-3 px-3">
-                    <label for="basic-url" class="form-label">Address</label>
-                    <div class="input-group">
-                    <input type="text" class="form-control" id="basic-url" size={40} placeholder="Enter Address" aria-describedby="basic-addon3"/>
-                    </div>
-                </div>
-                <div className="mb-3 px-3">
-                    <label for="basic-url" class="form-label">Activities</label>
-                    <div class="input-group">
-                    <input type="text" class="form-control" id="basic-url" size={40} placeholder="Enter Activities" aria-describedby="basic-addon3"/>
-                    </div>
-                </div>
-                {/* <div className="mb-3 px-3">
+          <form onSubmit={handleUpdateForm}>
+            <div class="py-4 px-3 up-inp-container">
+              <label for="basic-url" class="form-label">
+                NGO Name
+              </label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="basic-url"
+                  name="ngo_name"
+                  value={data.ngo_name}
+                  // onchange={(e) => setData()}
+                  size={40}
+                  placeholder="Enter NGO Name"
+                  aria-describedby="basic-addon3"
+                />
+              </div>
+            </div>
+            <div className="mb-3 px-3">
+              <label for="basic-url" class="form-label">
+                Head Name
+              </label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="basic-url"
+                  name="head_name"
+                  value={data.head_name}
+                  // onchange={handleInputChange}
+                  size={40}
+                  placeholder="Enter HeadName"
+                  aria-describedby="basic-addon3"
+                />
+              </div>
+            </div>
+            <div className="mb-3 px-3">
+              <label for="basic-url" class="form-label">
+                Address
+              </label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="basic-url"
+                  name="address"
+                  value={data.address}
+                  onchange={(e) => setData(e.target.value)}
+                  size={40}
+                  placeholder="Enter Address"
+                  aria-describedby="basic-addon3"
+                />
+              </div>
+            </div>
+            <div className="mb-3 px-3">
+              <label for="basic-url" class="form-label">
+                Activities
+              </label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="basic-url"
+                  name="activity"
+                  value={data.activity}
+                  onchange={(e) => setData(e.target.value)}
+                  size={40}
+                  placeholder="Enter Activities"
+                  aria-describedby="basic-addon3"
+                />
+              </div>
+            </div>
+            {/* <div className="mb-3 px-3">
                     <label for="basic-url" class="form-label">Email</label>
                     <div class="input-group">
                     <input type="text" class="form-control" id="basic-url" size={40} placeholder="Enter Email" aria-describedby="basic-addon3"/>
                     </div>
                 </div> */}
-                <div className="mb-3 px-3">
-                    <label for="basic-url" class="form-label">Contact</label>
-                    <div class="input-group">
-                    <input type="text" class="form-control" id="basic-url" size={40} placeholder="Enter contact Number" aria-describedby="basic-addon3"/>
-                    </div>
-                </div>
-                {/* <div className="up_submit_btn_container">
+            <div className="mb-3 px-3">
+              <label for="basic-url" class="form-label">
+                Contact
+              </label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="contact_number"
+                  value={data.contact_number}
+                  onchange={(e) => setData(e.target.value)}
+                  id="basic-url"
+                  size={40}
+                  placeholder="Enter contact Number"
+                  aria-describedby="basic-addon3"
+                />
+              </div>
+            </div>
+            {/* <div className="up_submit_btn_container">
                 <button  type="button" className="btn up_submit_btn mt-2">Primary</button>
                 </div> */}
-                <div class="d-grid col-6 mx-auto py-2">
-                    <button class="up_submit_btn" type="button">Send</button>
-                </div>
-            {/* </form> */}
+            <div class="d-grid col-6 mx-auto py-2">
+              <button class="up_submit_btn" type="submit">
+                Update
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </>

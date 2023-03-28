@@ -15,10 +15,14 @@ import LockIcon from "@mui/icons-material/Lock";
 import LoginIcon from "@mui/icons-material/Login";
 import { Email } from "@mui/icons-material";
 import Navbar from "../Navbar/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Alert, IconButton, Snackbar } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [message, setMessage] = useState({});
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -37,6 +41,41 @@ const Login = () => {
     const { token } = res.data;
     localStorage.setItem("token", token);
     console.log({ res });
+    if (res.status === 201) {
+      setMessage({
+        open: true,
+        message: "Login Successfully",
+        status: "success",
+      });
+      alert("Login Successfully");
+      navigate("/");
+    } else if (res.status === 413) {
+      alert("User Not Registerd");
+      navigate("/login");
+    }
+
+    const handleClose = () => {
+      setMessage({
+        open: false,
+        message: "",
+      });
+    };
+
+    const action = (
+      <React.Fragment>
+        <Button color="secondary" size="small" onClick={handleClose}>
+          UNDO
+        </Button>
+        <IconButton
+          size="small"
+          aria-label="close"
+          color="inherit"
+          onClick={handleClose}
+        >
+          <CloseIcon fontSize="small" />
+        </IconButton>
+      </React.Fragment>
+    );
   };
   return (
     <>
@@ -145,6 +184,22 @@ const Login = () => {
           </form>
         </Box>
       </div>
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={message.open}
+        autoHideDuration={6000}
+        // onClose={handleClose}
+        message={message.message}
+        // action={action}
+      >
+        <Alert
+          // onClose={handleClose}
+          severity={message.status}
+          sx={{ width: "100%" }}
+        >
+          {message.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 };
