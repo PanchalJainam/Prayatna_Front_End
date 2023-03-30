@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home.js";
 import About from "../Pages/About";
 // import Signup from "../Pages/Signup";
-import SignIn from "../Pages/SignIn";
+// import SignIn from "../Pages/SignIn";
 // import SignIn from "../Pages/SignIn";
 // import Card from "../Components/Card.jsx";
 import Search from "../Components/Search/Search.jsx";
@@ -34,14 +34,11 @@ export const Router = () => {
           <Route path="/registration">
             <Route index element={<Toggle />} />
           </Route>
-          {/* <Route path="/login">
-            <Route index element={<SignIn />} />
-          </Route> */}
           <Route path="/login">
-            <Route index element={<NgoLogin />} />
+            <Route  element={<NgoLogin />} />
           </Route>
           <Route path="/volunteer">
-            <Route index element={<Volunteer />} />
+            <Route  element={<Volunteer />} />
           </Route>
           <Route path="/myprofile">
             <Route index element={<Mydata />} />
