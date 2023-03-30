@@ -23,31 +23,31 @@ export const Router = () => {
         {/* <Form /> */}
         <Routes>
           <Route path="/">
-            <Route  element={<Home />} />
+            <Route index element={<Home />} />
           </Route>
           <Route path="/about">
-            <Route  element={<About />} />
+            <Route index element={<About />} />
           </Route>
           <Route path="/search">
-            <Route  element={<Search />} />
+            <Route index element={<Search />} />
           </Route>
           <Route path="/registration">
-            <Route  element={<Toggle />} />
+            <Route index element={<Toggle />} />
           </Route>
           {/* <Route path="/login">
             <Route index element={<SignIn />} />
           </Route> */}
           <Route path="/login">
-            <Route  element={<NgoLogin />} />
+            <Route index element={<NgoLogin />} />
           </Route>
           <Route path="/volunteer">
-            <Route  element={<Volunteer />} />
+            <Route index element={<Volunteer />} />
           </Route>
           <Route path="/myprofile">
-            <Route  element={<Mydata />} />
+            <Route index element={<Mydata />} />
           </Route>
           <Route path="/myprofile/edit">
-            <Route  element={<Update />} />
+            <Route index element={<Update />} />
           </Route>
         </Routes>
       </BrowserRouter>

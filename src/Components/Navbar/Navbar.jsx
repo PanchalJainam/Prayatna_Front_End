@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import logo_imge from "../../Images/Prayatan.png";
 import SearchIcon from "@mui/icons-material/Search";
 import Button from "@mui/material/Button";
-import ClickAwayListener from "@mui/material/ClickAwayListener";
-import Grow from "@mui/material/Grow";
-import Paper from "@mui/material/Paper";
-import Popper from "@mui/material/Popper";
-import MenuItem from "@mui/material/MenuItem";
-import MenuList from "@mui/material/MenuList";
+// import ClickAwayListener from "@mui/material/ClickAwayListener";
+// import Grow from "@mui/material/Grow";
+// import Paper from "@mui/material/Paper";
+// import Popper from "@mui/material/Popper";
+// import MenuItem from "@mui/material/MenuItem";
+// import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import "./Navbar.css";
 // import Mydata from "../NGOdeshboeard/Mydata";
@@ -21,22 +21,22 @@ const Navbar = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
+  // const handleClose = (event) => {
+  //   if (anchorRef.current && anchorRef.current.contains(event.target)) {
+  //     return;
+  //   }
 
-    setOpen(false);
-  };
+  //   setOpen(false);
+  // };
 
-  function handleListKeyDown(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
-      setOpen(false);
-    } else if (event.key === "Escape") {
-      setOpen(false);
-    }
-  }
+  // function handleListKeyDown(event) {
+  //   if (event.key === "Tab") {
+  //     event.preventDefault();
+  //     setOpen(false);
+  //   } else if (event.key === "Escape") {
+  //     setOpen(false);
+  //   }
+  // }
 
   // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
@@ -84,16 +84,6 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              {/* <li className="nav-item nav_li">
-                <Link
-                  className="nav-link"
-                  aria-current="page"
-                  to="/registration"
-                >
-                  Signup
-                </Link>
-              </li> */}
-
               <li className="nav-item nav_li">
                 <Link className="nav-link" aria-current="page" to="/myprofile">
                   My Profile
@@ -126,24 +116,32 @@ const Navbar = () => {
             <div className="wrap_login navbar-nav ml-auto dropdown_main">
               <Stack direction="row" spacing={2}>
                 <div className="nav-item">
-                  <Button
-                    ref={anchorRef}
-                    id="composition-button"
-                    aria-controls={open ? "composition-menu" : undefined}
-                    aria-expanded={open ? "true" : undefined}
-                    aria-haspopup="true"
-                    onClick={handleToggle}
+                  <Link
+                    to="/login"
                     sx={{
-                      color: "white",
-                      marginTop: "7px",
-                      width: "auto",
-                      border: "2px solid white",
-                      borderRadius: "10px",
+                      textDecoration: "none",
                     }}
                   >
-                    Login
-                  </Button>
-                  <Popper
+                    <Button
+                      ref={anchorRef}
+                      id="composition-button"
+                      aria-controls={open ? "composition-menu" : undefined}
+                      aria-expanded={open ? "true" : undefined}
+                      aria-haspopup="true"
+                      onClick={handleToggle}
+                      sx={{
+                        color: "white",
+                        marginTop: "7px",
+                        width: "auto",
+                        border: "2px solid white",
+                        borderRadius: "10px",
+                        textDecoration: "none",
+                      }}
+                    >
+                      Login
+                    </Button>
+                  </Link>
+                  {/* <Popper
                     open={open}
                     anchorEl={anchorRef.current}
                     role={undefined}
@@ -192,7 +190,7 @@ const Navbar = () => {
                         </Paper>
                       </Grow>
                     )}
-                  </Popper>
+                  </Popper> */}
                 </div>
               </Stack>
             </div>

@@ -20,11 +20,25 @@ const Update = () => {
       .catch((e) => console.log(e));
   };
 
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   set;
+  // const handleUpdateForm = (e) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     axios.put(`http://localhost:5000/regngos/64226c146859798f882e256d`, {
+  //       data,
+  //     });
+  //     alert("User name updated successfully!");
+  //   } catch (err) {
+  //     alert("Error updating user name");
+  //   }
   // };
 
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setData((prev) => {
+      return { ...prev, [name]: value };
+    });
+  };
   return (
     <>
       <div className="container-fluid main_update_container mt-3">
@@ -44,7 +58,8 @@ const Update = () => {
                   id="basic-url"
                   name="ngo_name"
                   value={data.ngo_name}
-                  // onchange={(e) => setData()}
+                  // value={data}
+                  onChange={handleInputChange}
                   size={40}
                   placeholder="Enter NGO Name"
                   aria-describedby="basic-addon3"
@@ -62,7 +77,7 @@ const Update = () => {
                   id="basic-url"
                   name="head_name"
                   value={data.head_name}
-                  // onchange={handleInputChange}
+                  onChange={handleInputChange}
                   size={40}
                   placeholder="Enter HeadName"
                   aria-describedby="basic-addon3"
@@ -80,7 +95,7 @@ const Update = () => {
                   id="basic-url"
                   name="address"
                   value={data.address}
-                  onchange={(e) => setData(e.target.value)}
+                  onChange={handleInputChange}
                   size={40}
                   placeholder="Enter Address"
                   aria-describedby="basic-addon3"
@@ -98,7 +113,7 @@ const Update = () => {
                   id="basic-url"
                   name="activity"
                   value={data.activity}
-                  onchange={(e) => setData(e.target.value)}
+                  onChange={handleInputChange}
                   size={40}
                   placeholder="Enter Activities"
                   aria-describedby="basic-addon3"
@@ -121,7 +136,7 @@ const Update = () => {
                   class="form-control"
                   name="contact_number"
                   value={data.contact_number}
-                  onchange={(e) => setData(e.target.value)}
+                  onChange={handleInputChange}
                   id="basic-url"
                   size={40}
                   placeholder="Enter contact Number"
