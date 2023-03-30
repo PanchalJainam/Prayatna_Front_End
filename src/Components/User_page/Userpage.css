@@ -5,8 +5,16 @@
 
 .reg-Reg_btn {
   border: none;
-  width: 250px;
+  /* width: 20%; */
   padding: 10px 60px;
   border-radius: 15px;
-  font-size: 18px;
+  font-size:18px ;
+  /* width:250px; */
+  transition: all 100ms;
+
+}
+
+.reg-Reg_btn:hover {
+  background-color: #f0f4f6;
+  /* color:white; */
 }

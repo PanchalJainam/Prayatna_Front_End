@@ -139,9 +139,9 @@ const Reg = () => {
       <div className="container-fluid reg-main_container p-3">
         <div className="container reg-sub_container p-3">
           <div className="container reg-sub_inp_container p-2 ">
-            <h3 className="text-center mb-2" style={{ color: "white" }}>
+            {/* <h3 className="text-center mb-2" style={{ color: "white" }}>
               Registration
-            </h3>
+            </h3> */}
             {/* <hr className='hr_line'/> */}
             <div className="reg-input_field p-4 mt-3">
               <form

@@ -61,7 +61,7 @@ const Signup = () => {
               encType="multipart/form-data"
             >
               <div className="detail_from">
-                <lable htflFor="ngo_name">Name : </lable>
+                <lable htflFor="ngo_name" >Name : </lable>
                 <br />
                 <input
                   type="text"

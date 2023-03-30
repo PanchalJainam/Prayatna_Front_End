@@ -35,10 +35,10 @@ export const Router = () => {
             <Route index element={<Toggle />} />
           </Route>
           <Route path="/login">
-            <Route  element={<NgoLogin />} />
+            <Route index element={<NgoLogin />} />
           </Route>
           <Route path="/volunteer">
-            <Route  element={<Volunteer />} />
+            <Route index element={<Volunteer />} />
           </Route>
           <Route path="/myprofile">
             <Route index element={<Mydata />} />

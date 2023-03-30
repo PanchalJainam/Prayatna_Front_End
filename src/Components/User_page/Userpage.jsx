@@ -130,6 +130,7 @@ const Userpage = () => {
   return (
     <>
       <div className="container">
+      <div className="use-input_field p-4 m-3 ">
         {/* <h3 className="text-center mt-4">Registration Form</h3> */}
         <form
           autoComplete="off"
@@ -138,7 +139,7 @@ const Userpage = () => {
           className="user_form"
         >
           <div class="form-group mt-3">
-            <label for="exampleInput">User Name</label>
+            <label for="exampleInput" style={{color:"white"}}>Name</label>
             <input
               type="text"
               name="user_name"
@@ -146,11 +147,11 @@ const Userpage = () => {
               class="form-control"
               id="exampleInput"
               aria-describedby="emailHelp"
-              placeholder="Enter User Name"
+              placeholder="Enter Your Name"
             />
           </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
+          <div class="form-group mt-3">
+            <label for="exampleInputEmail1" style={{color:"white"}}>Email</label>
             <input
               type="email"
               name="email"
@@ -161,20 +162,20 @@ const Userpage = () => {
               placeholder="Enter email"
             />
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Contact_No</label>
+          <div class="form-group mt-3">
+            <label for="exampleInputPassword1" style={{color:"white"}}>Contact Number</label>
             <input
               type="text"
               name="contact_number"
               onChange={handleInputChange}
               class="form-control"
               id="exampleInput2"
-              placeholder="Enter Contact no"
+              placeholder="Enter Contact Number"
               maxLength={10}
             />
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
+          <div class="form-group mt-3">
+            <label for="exampleInputPassword1" style={{color:"white"}}>Password</label>
             <input
               type="password"
               name="password"
@@ -202,7 +203,7 @@ const Userpage = () => {
             </button>
           </div>
         </form>
-
+        </div>
         {isOtp ? (
           <form onSubmit={handleOtpSubmit}>
             <input
