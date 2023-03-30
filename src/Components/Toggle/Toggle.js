@@ -10,10 +10,9 @@ const Toggle = () => {
   return (
     <>
       <Navbar />
-      <div className="container main_div">
-        <div className="title text-center p-5">
-          <h3>Registration Form</h3>
-          <p>Fill The Form As Per Requirement</p>
+      <div className="container reg-main-form-div">
+        <div className="title text-center mt-2 pt-3">
+          <h2 style={{color:"white"}}>Registration</h2>
         </div>
         <div className="checks p-3">
           <div className="radios d-flex">
