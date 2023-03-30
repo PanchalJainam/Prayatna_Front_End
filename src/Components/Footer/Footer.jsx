@@ -15,9 +15,9 @@ const Footer = () => {
       <footer className="container-fluid footer-container">
         <div className="container f-first-container">
           <div className="f-first-container-content">
-            <h1 className="text-center" style={{ marginTop: "17px" }}>
+            <h2 className="text-center" style={{ marginTop: "17px" }}>
               Register Your NGO with Us
-            </h1>
+            </h2>
             <div className=" f-heading-content">
               <p className=" ">
                 <DoneIcon />
