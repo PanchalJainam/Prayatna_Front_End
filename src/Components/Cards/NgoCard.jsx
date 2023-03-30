@@ -18,6 +18,9 @@ const NgoCard = ({ ngo }) => {
                     <a href="/request" class="btn btn-primary">
                       Send Request
                     </a>
+                    <a href="/request" class="btn btn-primary ms-1">
+                      Report to Ngo
+                    </a>
                   </div>
                 </div>
               </div>

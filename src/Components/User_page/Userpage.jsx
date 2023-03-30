@@ -4,7 +4,7 @@ import { Alert, Button, IconButton, Snackbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { useNavigate } from "react-router-dom";
 import "./Userpage.css";
-import { DataArrayTwoTone } from "@mui/icons-material";
+// import { DataArrayTwoTone } from "@mui/icons-material";
 
 const Userpage = () => {
   const navigate = useNavigate();
@@ -32,19 +32,8 @@ const Userpage = () => {
   };
 
   const handleFormSubmit = async (e) => {
-    // if (!user) {
-    //   setMessage({
-    //     open: true,
-    //     message: "All Fields Are Must be Required",
-    //     status: "error",
-    //   });
-    // }
     try {
       e.preventDefault();
-      // const formData = new FormData();
-      // for (let v in user) {
-      //   formData.append(v, user[v]);
-      // }
 
       console.log({ user });
       const res = await axios.post("/user-registration", user);
