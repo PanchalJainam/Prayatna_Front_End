@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo_imge from "../../Images/Prayatan.png";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,11 +11,73 @@ import Button from "@mui/material/Button";
 // import MenuList from "@mui/material/MenuList";
 import Stack from "@mui/material/Stack";
 import "./Navbar.css";
+import { useGlobalContext } from "../../context/GlobalContext";
 // import Mydata from "../NGOdeshboeard/Mydata";
+
+// const userType = {
+//   ngo
+// }
+
+const commonConfig = [
+  {
+    name: "Home",
+    route: "/home",
+  },
+  {
+    name: "about",
+    route: "/about",
+  },
+];
+
+const withoutLogin = [
+  ...commonConfig,
+  {
+    name: "/Login",
+    route: "/login",
+  },
+  {
+    name: "/Signup",
+    route: "/registration",
+  },
+];
+
+const routeConfig = {
+  ngo: [
+    ...commonConfig,
+    {
+      name: "My Profile",
+      route: "/myprofile",
+    },
+    {
+      name: "Contact Us",
+      route: "/contact",
+    },
+    {
+      name: "Logout",
+      route: "/logout",
+    },
+  ],
+  user: [
+    ...commonConfig,
+    {
+      name: "Search",
+      route: "/search",
+    },
+    {
+      name: "Feedback",
+      route: "/feedback",
+    },
+    {
+      name: "Logout",
+      route: "/logout",
+    },
+  ],
+};
 
 const Navbar = () => {
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
+  const { state, setState } = useGlobalContext();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
