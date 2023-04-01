@@ -7,7 +7,9 @@
     min-height: 200px;
     display: flex;
     align-items: center;
+    /* flex-direction: column;
     justify-content: left;
+    align-items: left; */
     position: relative;
     border-radius: 15px 15px 0 0;
 }

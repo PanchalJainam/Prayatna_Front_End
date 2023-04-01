@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Update.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import axios from "axios";
 const Update = () => {
   const [data, setData] = useState({});
@@ -43,6 +44,8 @@ const Update = () => {
     <>
       <div className="container-fluid main_update_container mt-3">
         <div className="up_first_container">
+          <KeyboardBackspaceIcon />
+
           <h3 className=" h3 Profile_update">Update Profile</h3>
         </div>
         <div className="info_container shadow">

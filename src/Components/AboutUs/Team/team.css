@@ -96,14 +96,14 @@ h1 {
   font-size: 1.4rem;
 }
 
-.team_card:hover {
+/* .team_card:hover {
   background: linear-gradient(#f2edf9, #fffbee);
   color: #ffffff;
-}
+} */
 
-.team_card:hover .team_img-container {
+/* .team_card:hover .team_img-container {
   transform: scale(1.15);
-}
+} */
 
 @media screen and (min-width: 768px) {
   section {

@@ -17,7 +17,8 @@ const SliderCard = () => {
       image:
         "https://i.pinimg.com/564x/56/2d/43/562d4333bff89365381b587c2810ec24.jpg",
       title: "Education",
-      content: "Education is the most powerful weapon we can use to change the world",
+      content:
+        "Education is the most powerful weapon we can use to change the world",
     },
     {
       image:
@@ -29,37 +30,43 @@ const SliderCard = () => {
       image:
         "https://i.pinimg.com/474x/64/ad/cd/64adcd39ac3409ebf2fdc83a52ee6df5.jpg",
       title: "scholarship",
-      content: "Education is the passport to the future, for tomorrow belongs to those who prepare for it today",
+      content:
+        "Education is the passport to the future, for tomorrow belongs to those who prepare for it today",
     },
     {
       image:
         "https://i.pinimg.com/564x/17/39/2c/17392c6e1ee452e13927796c1f446fc7.jpg",
       title: "Shelter",
-      content: "Shelter is a basic human need, and everyone deserves a place to call home",
+      content:
+        "Shelter is a basic human need, and everyone deserves a place to call home",
     },
     {
       image:
         "https://i.pinimg.com/564x/b8/d9/fc/b8d9fca928b5b5ddf0fd7176e2123497.jpg",
       title: "Oldage home",
-      content: "Aging is not lost youth but a new stage of opportunity and strength",
+      content:
+        "Aging is not lost youth but a new stage of opportunity and strength",
     },
     {
       image:
         "https://i.pinimg.com/564x/4a/6c/3c/4a6c3cbcf5d7b6696a9a1f5d6fce2c4a.jpg",
-      title: "Animal Reque",
-      content: "Animals are not just a part of this world, they're the purest form of nature",
+      title: "Animal Care",
+      content:
+        "Animals are not just a part of this world, they're the purest form of nature",
     },
     {
       image:
         "https://i.pinimg.com/474x/3d/85/40/3d8540303f5d09354ccbe2a05bf41846.jpg",
       title: "Medical",
-      content: "Health is a state of complete physical, mental and social well-being, not merely the absence of disease or infirmity",
+      content:
+        "Health is a state of complete physical, mental and social well-being, not merely the absence of disease or infirmity",
     },
     {
       image:
         "https://i.pinimg.com/474x/87/97/8f/87978f120ee019f2cfaff94a6b2febd6.jpg",
       title: "Others",
-      content: "Being human is not about being perfect, it's about being honest, humble, and kind",
+      content:
+        "Being human is not about being perfect, it's about being honest, humble, and kind",
     },
   ]);
   const theme = useTheme();
@@ -103,7 +110,7 @@ const SliderCard = () => {
               <div className="sl_imageContainer">
                 <h2 className="h2 text-center">{card.title}</h2>
                 <img className="sl_image" src={card.image} alt={card.title} />
-                <p className="text-center">{card.content}</p>
+                {/* <p className="text-center">{card.content}</p> */}
               </div>
               // <div className="sl_flip-card">
               //   <div className="sl_flip-card-inner">

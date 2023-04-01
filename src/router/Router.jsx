@@ -12,10 +12,11 @@ import NgoLogin from "../Components/Login/NgoLogin";
 import Mydata from "../Components/NGOdeshboeard/Mydata.jsx";
 import Update from "../Components/NGOdeshboeard/Update.jsx";
 // import volunteer from "../Components/Volunteer";
-import Fraud from "../Components/FraudForm/Fraud";
+import Fraud from "../Components/Forms/FraudForm/Fraud.js";
 import Volunteer from "../Components/Volunteer/Volunteer";
-// import Reg from "../Components/Registration/Reg.jsx";
+
 import Toggle from "../Components/Toggle/Toggle.js";
+import Req from "../Components/Forms/RequestForm/Request.js";
 
 export const Router = () => {
   return (
@@ -53,6 +54,9 @@ export const Router = () => {
           </Route>
           <Route path="/contact">
             <Route index element={<Contact />} />
+          </Route>
+          <Route path="/search/request">
+            <Route index element={<Req />} />
           </Route>
         </Routes>
       </BrowserRouter>

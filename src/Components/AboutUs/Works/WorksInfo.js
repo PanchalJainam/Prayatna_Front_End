@@ -14,7 +14,7 @@ const Info = () => {
         </h2>
         <div className="row">
           <div className="col-sm-12 col-lg-6 col-12 p-4">
-            <h3 className="text-left">Why Prayatna ?</h3>
+            {/* <h3 className="text-left">Why Prayatna ?</h3> */}
             <h4>Together, let's help each other </h4>
             <p className="work_info">
               <spane>
