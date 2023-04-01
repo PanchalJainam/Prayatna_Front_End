@@ -1,4 +1,5 @@
 // import "./App.css";
+import { GlobalContext } from "./context/GlobalContext";
 import Router from "./router/Router";
 // import Volunteer from "./Components/Volunteer/Volunteer.jsx";
 // import "../public/style.css";
@@ -13,8 +14,10 @@ import Router from "./router/Router";
 const App = () => {
   return (
     <>
-      <Router />
-      {/* <Volunteer/> */}
+      <GlobalContext>
+        <Router />
+        {/* <Volunteer/> */}
+      </GlobalContext>
     </>
   );
 };
