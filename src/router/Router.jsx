@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home.js";
 import About from "../Pages/About";
+import Contact from "../Components/Contact Us/Contact";
 // import Signup from "../Pages/Signup";
 // import SignIn from "../Pages/SignIn";
 // import SignIn from "../Pages/SignIn";
@@ -49,6 +50,9 @@ export const Router = () => {
           </Route>
           <Route path="/myprofile/edit">
             <Route index element={<Update />} />
+          </Route>
+          <Route path="/contact">
+            <Route index element={<Contact />} />
           </Route>
         </Routes>
       </BrowserRouter>
