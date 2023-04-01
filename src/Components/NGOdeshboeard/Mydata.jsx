@@ -6,19 +6,21 @@ import RequestCard from "./RequestCard";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import axios from "axios";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 const Mydata = () => {
   const [data, setData] = useState([]);
 
-  // const id = useParams("64226c146859798f882e256d");
-  // console.log(id);
+  const { state, setState } = useGlobalContext();
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/regngos/64250e01aa915028977dd56f`)
-      .then((res) => setData(res.data))
-      .catch((e) => console.log(e));
-  }, []);
+    if (state?.userData?._id) {
+      axios
+        .get(`http://localhost:5000/regngos/${state.userData._id}`)
+        .then((res) => setData(res.data))
+        .catch((e) => console.log(e));
+    }
+  }, [state]);
 
   return (
     <>

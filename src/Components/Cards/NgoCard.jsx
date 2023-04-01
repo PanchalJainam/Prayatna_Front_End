@@ -16,7 +16,10 @@ const NgoCard = ({ ngo }) => {
                     <h4 class="card-title">{ngo_name}</h4>
                     <p class="card-text">{activity}</p>
                     <p class="card-text">{address}</p>
-                    <a href="/search/request" class="btn btn-primary">
+                    <a
+                      href={`/search/request?ngo_id=${_id}`}
+                      class="btn btn-primary"
+                    >
                       Send Request
                     </a>
                     <a href="/search/fraud" class="btn btn-primary ms-1">

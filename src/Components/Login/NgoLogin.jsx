@@ -20,10 +20,12 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Alert, IconButton, Snackbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState({});
+  const { state, setState } = useGlobalContext();
 
   const [login, setLogin] = useState({
     email: "",
@@ -39,18 +41,19 @@ const Login = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
     const { email, password } = login;
-    const res = await axios.post("/login", { email, password });
-    const { token } = res.data;
-    localStorage.setItem("token", token);
-    console.log({ res });
+
     if (login.email === "" || login.password === "") {
       setMessage({
         open: true,
         message: "Fields Are Required",
         status: "error",
       });
+      return;
     }
+    const res = await axios.post("/login", { email, password });
+
     if (res.status === 201) {
       setMessage({
         open: true,
@@ -58,6 +61,19 @@ const Login = () => {
         status: "success",
       });
       alert("Login Successfully");
+      console.log({ res });
+      const { token, userData } = res.data;
+      localStorage.setItem("token", token);
+      let userType;
+      if (userData.ngo_name) {
+        userType = "ngo";
+      } else {
+        userType = "user";
+      }
+      setState({
+        userType,
+        userData,
+      });
       navigate("/");
     } else if (res.status === 413) {
       alert("User Not Registerd");
