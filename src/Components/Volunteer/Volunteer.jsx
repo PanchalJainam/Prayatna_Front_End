@@ -15,7 +15,7 @@ const Volunteer = () => {
     email: "",
     contact_number: "",
     occupation: "",
-    gender: "",
+    gender: choice,
     address: "",
   });
 
@@ -29,7 +29,7 @@ const Volunteer = () => {
     const { name, value } = e.target;
     if (name === "gender") {
       setChoice((prev) => {
-        return { ...prev, [name]: value };
+        return { ...prev, [name]: choice };
       });
     } else {
       setData((prev) => {
@@ -86,14 +86,16 @@ const Volunteer = () => {
           error: "error",
           status: "error",
         });
-      } else if (testEmailAddress(data.email)) {
-        setMessage({
-          open: true,
-          message: "Email Is Not Valid",
-          error: "error",
-          status: "error",
-        });
-      } else {
+      }
+      // else if (testEmailAddress(data.email)) {
+      //   setMessage({
+      //     open: true,
+      //     message: "Email Is Not Valid",
+      //     error: "error",
+      //     status: "error",
+      //   });
+      // }
+      else {
         setMessage({
           open: true,
           message: "Your Volunteer Request Send successfully.",

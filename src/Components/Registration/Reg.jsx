@@ -82,10 +82,35 @@ const Reg = () => {
   };
 
   const handleFormSubmit = async (e) => {
-    if (regData === "") {
+    if (
+      regData.ngo_name === "" ||
+      regData.head_name === "" ||
+      regData.email === "" ||
+      regData.address === "" ||
+      regData.activity === "" ||
+      regData.password === "" ||
+      regData.cpassword === "" ||
+      regData.contact_number === ""
+    ) {
       setMessage({
         open: true,
         message: "All Fields Are Must be Required",
+        status: "error",
+      });
+    } else if (regData.password !== regData.cpassword) {
+      setMessage({
+        open: true,
+        message: "Password Are Not Matched",
+        status: "error",
+      });
+    } else if (
+      parseInt(regData.contact_number.length) > 10 ||
+      parseInt(regData.contact_number.length) < 10
+    ) {
+      setMessage({
+        open: true,
+        message: "Number must be 10 digit",
+        error: "error",
         status: "error",
       });
     }
@@ -150,7 +175,10 @@ const Reg = () => {
                 onSubmit={handleFormSubmit}
               >
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     NGO Name
                   </label>
                   <input
@@ -163,7 +191,10 @@ const Reg = () => {
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Trusty Name
                   </label>
                   <input
@@ -176,7 +207,10 @@ const Reg = () => {
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Email
                   </label>
                   <input
@@ -189,7 +223,10 @@ const Reg = () => {
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Address
                   </label>
                   <br />
@@ -203,7 +240,10 @@ const Reg = () => {
                   ></textarea>
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Activities
                   </label>
                   <input
@@ -216,7 +256,10 @@ const Reg = () => {
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Upload legal Document
                   </label>
                   <input
@@ -229,7 +272,10 @@ const Reg = () => {
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Contact Number
                   </label>
                   <input
@@ -242,7 +288,10 @@ const Reg = () => {
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Password
                   </label>
                   <input
@@ -255,7 +304,10 @@ const Reg = () => {
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">
+                  <label
+                    for="exampleFormControlInput1"
+                    class="form-label  rg_lbl"
+                  >
                     Confirm Password
                   </label>
                   <input

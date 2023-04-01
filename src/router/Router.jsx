@@ -11,6 +11,7 @@ import NgoLogin from "../Components/Login/NgoLogin";
 import Mydata from "../Components/NGOdeshboeard/Mydata.jsx";
 import Update from "../Components/NGOdeshboeard/Update.jsx";
 // import volunteer from "../Components/Volunteer";
+import Fraud from "../Components/FraudForm/Fraud";
 import Volunteer from "../Components/Volunteer/Volunteer";
 // import Reg from "../Components/Registration/Reg.jsx";
 import Toggle from "../Components/Toggle/Toggle.js";
@@ -39,6 +40,9 @@ export const Router = () => {
           </Route>
           <Route path="/volunteer">
             <Route index element={<Volunteer />} />
+          </Route>
+          <Route path="/search/fraud">
+            <Route index element={<Fraud />} />
           </Route>
           <Route path="/myprofile">
             <Route index element={<Mydata />} />

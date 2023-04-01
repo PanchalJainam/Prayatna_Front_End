@@ -27,7 +27,7 @@
     justify-content: center;
     border: 1px solid white; */
 }
-.reg-form-container{
+.reg-form-container {
   width: 100%;
 }
 .reg-btn_access {
@@ -44,9 +44,13 @@
   /* width: 250px; */
 }
 .reg-input_field {
-  background-color: white;
+  /* background-color: white; */
   border-radius: 15px;
   color: black;
+}
+
+.rg_lbl {
+  color: white;
 }
 textarea {
   resize: none;
@@ -56,10 +60,9 @@ textarea {
   /* width: 20%; */
   padding: 10px 60px;
   border-radius: 15px;
-  font-size:18px ;
+  font-size: 18px;
   /* width:250px; */
   transition: all 100ms;
-
 }
 
 .reg-Reg_btn:hover {
@@ -69,10 +72,10 @@ textarea {
 /* *{
     color:white
 } */
-@media screen and (max-width:430px) {
+@media screen and (max-width: 430px) {
   /* .reg-Reg_btn {
     /* width: 60%; */
-    /* padding: 10px 10px; 
+  /* padding: 10px 10px; 
     text-align: center;
     /* padding-right: 50px; 
   } */

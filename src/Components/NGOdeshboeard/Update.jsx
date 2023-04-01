@@ -6,7 +6,7 @@ const Update = () => {
   const [data, setData] = useState({});
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/regngos/64226c146859798f882e256d`)
+      .get(`http://localhost:5000/regngos/64250e01aa915028977dd56f`)
       .then((res) => setData(res.data))
       .catch((e) => console.log(e));
   }, []);
@@ -15,7 +15,7 @@ const Update = () => {
     e.preventDefault();
 
     axios
-      .put(`http://localhost:5000/regngos/64226c146859798f882e256d`, data)
+      .put(`http://localhost:5000/regngos/64250e01aa915028977dd56f`, data)
       .then((res) => alert("Data Update Successfully"))
       .catch((e) => console.log(e));
   };

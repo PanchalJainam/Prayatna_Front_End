@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Fraud.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect } from "react";
+import axios from "axios";
 // import FormImage from "../../../Images/requestImage.jpg";
-
+// const API = "http://localhost:5000/regngos";
 const Fraud = () => {
+  const [data, setData] = useState([]);
+
+  // console.log(data.ngo_name);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:5000/regngos/64226c146859798f882e256d`)
+      .then((res) => {
+        setData(res.data);
+      })
+      .catch((e) => console.log(e));
+  }, []);
+
   return (
     <>
       <div class="wrapper">
@@ -16,10 +31,17 @@ const Fraud = () => {
               alt=""
             />
           </div>
-          <form action="">
+          <form>
             <h3 className="title">Fraud NGO </h3>
             <div className="form-row">
-              <input type="email" class="form-control" placeholder="Ngo Name" />
+              <input
+                type="email"
+                name="ngo_name"
+                class="form-control"
+                placeholder="Ngo Name"
+                value={data.ngo_name}
+                onChange={(e) => setData(e.target.value)}
+              />
             </div>
             <div class="form-row">
               <input

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { Alert, Button, IconButton, Snackbar } from "@mui/material";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./NgoLogin.css";
 import {
@@ -23,10 +24,12 @@ import CloseIcon from "@mui/icons-material/Close";
 const Login = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState({});
+
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setLogin((prev) => {
@@ -41,6 +44,13 @@ const Login = () => {
     const { token } = res.data;
     localStorage.setItem("token", token);
     console.log({ res });
+    if (login.email === "" || login.password === "") {
+      setMessage({
+        open: true,
+        message: "Fields Are Required",
+        status: "error",
+      });
+    }
     if (res.status === 201) {
       setMessage({
         open: true,
@@ -53,30 +63,28 @@ const Login = () => {
       alert("User Not Registerd");
       navigate("/login");
     }
-
-    const handleClose = () => {
-      setMessage({
-        open: false,
-        message: "",
-      });
-    };
-
-    const action = (
-      <React.Fragment>
-        <Button color="secondary" size="small" onClick={handleClose}>
-          UNDO
-        </Button>
-        <IconButton
-          size="small"
-          aria-label="close"
-          color="inherit"
-          onClick={handleClose}
-        >
-          <CloseIcon fontSize="small" />
-        </IconButton>
-      </React.Fragment>
-    );
   };
+  const handleClose = () => {
+    setMessage({
+      open: false,
+      message: "",
+    });
+  };
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
   return (
     <>
       <Navbar />
@@ -184,16 +192,32 @@ const Login = () => {
           </form>
         </Box>
       </div>
+      {/* <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={message.open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={message.message}
+        action={action}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={message.status}
+          sx={{ width: "100%" }}
+        >
+          {message.message}
+        </Alert>
+      </Snackbar> */}
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={message.open}
         autoHideDuration={6000}
-        // onClose={handleClose}
+        onClose={handleClose}
         message={message.message}
-        // action={action}
+        action={action}
       >
         <Alert
-          // onClose={handleClose}
+          onClose={handleClose}
           severity={message.status}
           sx={{ width: "100%" }}
         >
