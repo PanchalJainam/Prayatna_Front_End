@@ -15,28 +15,32 @@ const Fraud = () => {
   //   activity: "",
   // });
 
-  const [data, setData] = useState([
-    {
-      ngo_name: "",
-      email: "",
-      message: "",
-      activity: "",
-    },
-  ]);
+  const [data, setData] = useState({
+    ngo_name: "",
+    email: "",
+    message: "",
+    activity: "",
+  });
 
   const [searchParams, setSearchParams] = useSearchParams();
   const ngo_id = searchParams.get("ngo_id");
 
   const { state } = useGlobalContext();
+  console.log({ state });
 
   useEffect(() => {
     if (state?.userData?._id) {
       axios
         .get(`http://localhost:5000/regngos/${state.userData._id}`)
-        .then((res) => setData(res.data))
+        .then((res) => {
+          console.log({ res });
+          setData(res.data);
+        })
         .catch((e) => console.log(e));
     }
   }, [state]);
+
+  console.log({ data });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -83,7 +87,7 @@ const Fraud = () => {
                 type="text"
                 className="fraud_form-control"
                 placeholder="Enter a Name"
-                value={data.ngo_name}
+                value={data?.ngo_name}
                 onChange={handleInputChange}
               />
             </div>
@@ -93,7 +97,7 @@ const Fraud = () => {
                 type="email"
                 className="fraud_form-control"
                 placeholder="Enter Email"
-                value={data.email}
+                value={data?.email}
                 onChange={handleInputChange}
               />
             </div>

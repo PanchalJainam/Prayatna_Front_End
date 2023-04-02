@@ -8,12 +8,10 @@ import axios from "axios";
 const Feedbackform = () => {
   const [value, setValue] = React.useState(0); // for rating
 
-  const [data, setData] = useState([
-    {
-      email: "",
-      message: "",
-    },
-  ]);
+  const [data, setData] = useState({
+    email: "",
+    message: "",
+  });
 
   // const [user, setUser] = useState();
   const { state, setState } = useGlobalContext();
@@ -22,7 +20,9 @@ const Feedbackform = () => {
     if (state?.userData?._id) {
       axios
         .get(`http://localhost:5000/reguser/${state.userData._id}`)
-        .then((res) => setData(res.data))
+        .then((res) => {
+          setData(res.data);
+        })
         .catch((e) => console.log(e));
     }
   }, [state]);
@@ -37,7 +37,7 @@ const Feedbackform = () => {
   const handleFormSubmit = async (e) => {
     try {
       e.preventDefault();
-      const res = await axios.post("/feedback", data);
+      const res = await axios.post("/feedback", { ...data, rating: value });
     } catch (err) {
       console.log(err);
     }
@@ -58,7 +58,7 @@ const Feedbackform = () => {
                 type="email"
                 className="feed_form-control feed_input"
                 placeholder="Email"
-                value={data.email}
+                value={data?.email}
                 onChange={handleInputChange}
               />
             </div>
@@ -69,7 +69,7 @@ const Feedbackform = () => {
               cols="8"
               placeholder="Message"
               className="feed_form-control"
-              value={data.message}
+              value={data?.message}
               style={{ height: "130px" }}
               onChange={handleInputChange}
             ></textarea>
@@ -90,62 +90,9 @@ const Feedbackform = () => {
               </div>
             </div>
 
-            {/* <div className="feed_form-row">
-              <div className="rate">
-                <input
-                  type="radio"
-                  id="star5"
-                  name="rate"
-                  value="5"
-                  className="feed_input"
-                />
-                <label for="star5" title="text" className="feed_lbl">
-                  5 stars
-                </label>
-                <input
-                  type="radio"
-                  id="star4"
-                  name="rate"
-                  value="4"
-                  className="feed_input"
-                />
-                <label for="star4" title="text" className="feed_lbl">
-                  4 stars
-                </label>
-                <input
-                  type="radio"
-                  id="star3"
-                  name="rate"
-                  value="3"
-                  className="feed_input"
-                />
-                <label for="star3" title="text" className="feed_lbl">
-                  3 stars
-                </label>
-                <input
-                  type="radio"
-                  id="star2"
-                  name="rate"
-                  value="2"
-                  className="feed_input"
-                />
-                <label for="star2" title="text" className="feed_lbl">
-                  2 stars
-                </label>
-                <input
-                  type="radio"
-                  id="star1"
-                  name="rate"
-                  value="1"
-                  className="feed_input"
-                />
-                <label for="star1" title="text" className="feed_lbl">
-                  1 star
-                </label>
-              </div>
-            </div> */}
-
-            <button className="feed_btn">Submit</button>
+            <button type="submit" className="feed_btn">
+              Submit
+            </button>
           </form>
         </div>
       </div>
