@@ -30,7 +30,7 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   }
   
-  .fraud_image-holder img {
+  .fraud_image-holder .fraud_img {
     border-radius: 15px;
     transform: translateX(-84px);
     margin-top: 60px;
@@ -110,7 +110,7 @@
       border-radius: 0;
       box-shadow: none; }
   
-    .fraud_image-holder img {
+    .fraud_image-holder .fraud_img {
       transform: translateX(0);
       border-radius: 0; }
   
