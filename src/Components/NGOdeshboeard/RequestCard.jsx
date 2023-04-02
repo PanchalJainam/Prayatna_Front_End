@@ -7,21 +7,6 @@ const RequestCard = (props) => {
   const [data, setData] = useState([]);
   const { state, setState } = useGlobalContext();
 
-  const [status, setStatus] = useState({
-    status: "Accepted",
-  });
-
-  const setacceptVal = () => {
-    let status = "accepted";
-    return status;
-  };
-
-  const setdeclineVal = () => {
-    let status = "rejected";
-    return status;
-  };
-  console.log({ status });
-
   useEffect(() => {
     if (state?.userData?._id) {
       axios
@@ -31,15 +16,13 @@ const RequestCard = (props) => {
     }
   }, [state]);
 
-  axios
-    .post(`http://localhost:5000/accepet-request/${state.userData._id}`)
-    .then((res) => setData(res.data))
-    .catch((e) => console.log(e));
-
-  axios
-    .post(`http://localhost:5000/decline-request/${state.userData._id}`)
-    .then((res) => setData(res.data))
-    .catch((e) => console.log(e));
+  const accepted = () => {
+    alert("Hello");
+    axios
+      .put(`http://localhost:5000/accepet-request/${state.userData._id}`)
+      .then((res) => setData(res.data))
+      .catch((e) => console.log(e));
+  };
 
   console.log({ data });
   return (
@@ -75,18 +58,13 @@ const RequestCard = (props) => {
                     <p class="card-text"> {user_id}</p>
                     {/* <p class="card-text">{address}</p> */}
                     <a
-                      href="/accept-request"
+                      href="/myprofile"
                       class="btn btn-primary"
-                      onChange={status.status}
-                      onClick={setacceptVal}
+                      onClick={accepted}
                     >
                       Accept Request
                     </a>
-                    <a
-                      href="/decline-request"
-                      class="btn btn-primary ms-1"
-                      onClick={setdeclineVal}
-                    >
+                    <a href="/myprofile" class="btn btn-primary ms-1">
                       Decline Request
                     </a>
                   </div>

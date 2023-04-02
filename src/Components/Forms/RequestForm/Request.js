@@ -27,9 +27,8 @@ const Form = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    alert("hello jinal");
     try {
-      const res = await axios.post("/request", {
+      const res = await axios.post("/report", {
         ...user,
         user_id: state.userData._id,
         ngo_id,

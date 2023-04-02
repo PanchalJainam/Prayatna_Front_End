@@ -16,7 +16,7 @@ import Fraud from "../Components/Forms/FraudForm/Fraud.js";
 import Volunteer from "../Components/Volunteer/Volunteer";
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
-import FeedbackForm from "../Components/Forms/FeedbackForm/feedbackform.js";
+import FeedbackForm from "../Components/Forms/FeedbackForm/Feedbackform.js";
 
 export const Router = () => {
   return (
@@ -43,7 +43,7 @@ export const Router = () => {
           <Route path="/volunteer">
             <Route index element={<Volunteer />} />
           </Route>
-          <Route path="/search/fraud">
+          <Route path="/search/report">
             <Route index element={<Fraud />} />
           </Route>
           <Route path="/myprofile">
@@ -58,7 +58,7 @@ export const Router = () => {
           <Route path="/search/request">
             <Route index element={<Req />} />
           </Route>
-          <Route path="/search/feedback">
+          <Route path="/feedback">
             <Route index element={<FeedbackForm />} />
           </Route>
         </Routes>

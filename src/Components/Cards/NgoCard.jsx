@@ -22,7 +22,10 @@ const NgoCard = ({ ngo }) => {
                     >
                       Send Request
                     </a>
-                    <a href="/search/fraud" class="btn btn-primary ms-1">
+                    <a
+                      href={`/search/report?ngo_id=${_id}`}
+                      class="btn btn-primary ms-1"
+                    >
                       Report to Ngo
                     </a>
                   </div>
