@@ -81,7 +81,7 @@ const Reg = () => {
     }
   };
 
-  const handleFormSubmit = async (e) => {
+  const vlaidation = () => {
     if (
       regData.ngo_name === "" ||
       regData.head_name === "" ||
@@ -114,6 +114,10 @@ const Reg = () => {
         status: "error",
       });
     }
+  };
+
+  const handleFormSubmit = async (e) => {
+    vlaidation();
     try {
       e.preventDefault();
       const formData = new FormData();

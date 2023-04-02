@@ -7,6 +7,21 @@ const RequestCard = (props) => {
   const [data, setData] = useState([]);
   const { state, setState } = useGlobalContext();
 
+  const [status, setStatus] = useState({
+    status: "Accepted",
+  });
+
+  const setacceptVal = () => {
+    let status = "accepted";
+    return status;
+  };
+
+  const setdeclineVal = () => {
+    let status = "rejected";
+    return status;
+  };
+  console.log({ status });
+
   useEffect(() => {
     if (state?.userData?._id) {
       axios
@@ -15,6 +30,16 @@ const RequestCard = (props) => {
         .catch((e) => console.log(e));
     }
   }, [state]);
+
+  axios
+    .post(`http://localhost:5000/accepet-request/${state.userData._id}`)
+    .then((res) => setData(res.data))
+    .catch((e) => console.log(e));
+
+  axios
+    .post(`http://localhost:5000/decline-request/${state.userData._id}`)
+    .then((res) => setData(res.data))
+    .catch((e) => console.log(e));
 
   console.log({ data });
   return (
@@ -41,18 +66,29 @@ const RequestCard = (props) => {
                 <div class="card mb-3" key={_id}>
                   {/* <img className="ngo_img" src={pic} alt="Card" /> */}
                   <div class="card-body">
-                    <h4 class="card-title">{user_name}</h4>
-                    <p class="card-text">{user_id}</p>
-                    {/* <p class="card-text">{address}</p> */}
-                    {/* <a
-                      href={`/search/request?ngo_id=${_id}`}
-                      class="btn btn-primary"
+                    <span
+                      class="fa user_icon fa-user d-flex"
+                      aria-hidden="true"
                     >
-                      Send Request
+                      <h4 class="caerd-title d-flex">{user_name}</h4>
+                    </span>
+                    <p class="card-text"> {user_id}</p>
+                    {/* <p class="card-text">{address}</p> */}
+                    <a
+                      href="/accept-request"
+                      class="btn btn-primary"
+                      onChange={status.status}
+                      onClick={setacceptVal}
+                    >
+                      Accept Request
                     </a>
-                    <a href="/search/fraud" class="btn btn-primary ms-1">
-                      Report to Ngo
-                    </a> */}
+                    <a
+                      href="/decline-request"
+                      class="btn btn-primary ms-1"
+                      onClick={setdeclineVal}
+                    >
+                      Decline Request
+                    </a>
                   </div>
                 </div>
               </div>

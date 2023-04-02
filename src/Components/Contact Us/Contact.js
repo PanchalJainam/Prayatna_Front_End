@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 const Contact = () => {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <div className="contact_container mt-5">
         <div className="contactus_title">
           <h1>Contact Us</h1>
@@ -29,14 +29,15 @@ const Contact = () => {
             <div class="con_email con_details">
               <MarkEmailUnreadIcon />
               <div class="contact_topic">Email</div>
-              <div class="contact_text-one">praytana@gmail.com</div>
-              <div class="contact_text-two">praytana.info@gmail.com</div>
+              <div class="contact_text-one">prayatna@gmail.com</div>
+              <div class="contact_text-two">prayatna.info@gmail.com</div>
             </div>
           </div>
           <div class="contact_right-side">
             <div class="topic-text">Let's catch up</div>
             <p>
-              If you have any queries related this , you can send message, will pleasure to help you.
+              If you have any queries related this , you can send message, will
+              pleasure to help you.
             </p>
             <form action="#">
               <div class="contact_input-box">
