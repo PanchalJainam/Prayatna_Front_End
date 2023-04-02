@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./Request.css";
 import FormImage from "../../../Images/requestImage.jpg";
-import axios from "axios";
+import { Link, useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../../../context/GlobalContext";
-import { useParams, useSearchParams } from "react-router-dom";
-
+import axios from "axios";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 const Form = () => {
   const [user, setUser] = useState({
     user_name: "",
@@ -41,9 +41,20 @@ const Form = () => {
 
   return (
     <>
-      <div class="req_wrapper">
-        <div class="req_inner">
-          <div class="req_image-holder">
+      <div className="req_wrapper">
+        <div className="req_inner">
+          <Link to="/search">
+            <KeyboardBackspaceIcon
+              style={{
+                position: "relative",
+                left: "20px",
+                top: "-15px",
+                fontSize: "30px",
+                color: "black",
+              }}
+            />
+          </Link>
+          <div className="req_image-holder">
             <img src={FormImage} alt="" />
           </div>
           <form onSubmit={handleFormSubmit} className="req_form">
@@ -51,7 +62,7 @@ const Form = () => {
             <div className="req_form-row">
               <input
                 type="text"
-                class="req_form-control"
+                className="req_form-control"
                 placeholder="Enter Your Name"
                 name="user_name"
                 onChange={handleInputChange}
@@ -66,10 +77,10 @@ const Form = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div class="req_form-row">
+            <div className="req_form-row">
               <input
                 type="text"
-                class="req_form-control"
+                className="req_form-control"
                 placeholder="Mobile No"
                 name="contact"
                 onChange={handleInputChange}
@@ -81,7 +92,7 @@ const Form = () => {
               rows="3"
               cols="8"
               placeholder="Your Need"
-              class="req_form-control"
+              className="req_form-control"
               style={{ height: "130px" }}
               onChange={handleInputChange}
             ></textarea>

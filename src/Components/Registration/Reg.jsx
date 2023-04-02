@@ -178,173 +178,181 @@ const Reg = () => {
                 encType="multipart/form-data"
                 onSubmit={handleFormSubmit}
               >
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    NGO Name
-                  </label>
-                  <input
-                    type="text"
-                    name="ngo_name"
-                    onChange={handleInputChange}
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter NGO Name"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Trusty Name
-                  </label>
-                  <input
-                    type="text"
-                    name="head_name"
-                    onChange={handleInputChange}
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter NGO Name"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    onChange={handleInputChange}
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter Trustee Name"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Address
-                  </label>
-                  <br />
-                  <textarea
-                    name="address"
-                    id=""
-                    onChange={handleInputChange}
-                    className="form-control"
-                    cols="58"
-                    rows="3"
-                  ></textarea>
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Activities
-                  </label>
-                  <input
-                    type="text"
-                    name="activity"
-                    onChange={handleInputChange}
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter Your Activity"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Upload legal Document
-                  </label>
-                  <input
-                    type="file"
-                    name="document"
-                    onChange={handleInputChange}
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder=""
-                  />
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Contact Number
-                  </label>
-                  <input
-                    type="text"
-                    name="contact_number"
-                    onChange={handleInputChange}
-                    class="form-control"
-                    id="exampleFormControlInput1"
-                    placeholder="Enter Contact Number"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    name="password"
-                    onChange={handleInputChange}
-                    id="exampleFormControlInput1"
-                    placeholder="Enter Password"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label
-                    for="exampleFormControlInput1"
-                    class="form-label  rg_lbl"
-                  >
-                    Confirm Password
-                  </label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    name="cpassword"
-                    onChange={handleInputChange}
-                    id="exampleFormControlInput1"
-                    placeholder="Enter Password"
-                  />
-                </div>
-                <div className="container reg-btn_access p-2 mt-3">
-                  <button type="submit" className="reg-Reg_btn">
-                    Register
-                  </button>
+                <div className="row">
+                  <div className="col-12 col-sm-12 col-lg-6">
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        NGO Name
+                      </label>
+                      <input
+                        type="text"
+                        name="ngo_name"
+                        onChange={handleInputChange}
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Enter NGO Name"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Trusty Name
+                      </label>
+                      <input
+                        type="text"
+                        name="head_name"
+                        onChange={handleInputChange}
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Enter NGO Name"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        onChange={handleInputChange}
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Enter Trustee Name"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Address
+                      </label>
+                      <br />
+                      <textarea
+                        name="address"
+                        id=""
+                        onChange={handleInputChange}
+                        className="form-control"
+                        cols="58"
+                        rows="5"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <div className="col-12 col-sm-12 col-lg-6">
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Activities
+                      </label>
+                      <input
+                        type="text"
+                        name="activity"
+                        onChange={handleInputChange}
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Enter Your Activity"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Upload legal Document
+                      </label>
+                      <input
+                        type="file"
+                        name="document"
+                        onChange={handleInputChange}
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="NGO legal Document"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Contact Number
+                      </label>
+                      <input
+                        type="text"
+                        name="contact_number"
+                        onChange={handleInputChange}
+                        className="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="Enter Contact Number"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Password
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        name="password"
+                        onChange={handleInputChange}
+                        id="exampleFormControlInput1"
+                        placeholder="Enter Password"
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label
+                        for="exampleFormControlInput1"
+                        className="form-label  rg_lbl"
+                      >
+                        Confirm Password
+                      </label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        name="cpassword"
+                        onChange={handleInputChange}
+                        id="exampleFormControlInput1"
+                        placeholder="Enter Password"
+                      />
+                    </div>
+                  </div>
+                  <div className="container reg-btn_access p-2 mt-3">
+                    <button type="submit" className="reg-Reg_btn">
+                      Register
+                    </button>
+                  </div>
                 </div>
               </form>
               {isOtp ? (
-                <form onSubmit={handleOtpSubmit}>
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="otp"
-                    onChange={handleOtpInputChange}
-                    id="exampleFormControlInput1"
-                    placeholder="Enter OTP"
-                  />
-                  <div className="container reg-btn_access p-2 mt-3">
-                    <button type="submit" className="reg-Reg_btn">
-                      Verify
-                    </button>
-                  </div>
-                </form>
+                <div className="container" style={{ maxWidth: "50px" }}>
+                  <form onSubmit={handleOtpSubmit}>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="otp"
+                      onChange={handleOtpInputChange}
+                      id="exampleFormControlInput1"
+                      placeholder="Enter OTP"
+                    />
+                    <div className="container reg-btn_access p-2 mt-3">
+                      <button type="submit" className="reg-Reg_btn">
+                        Verify
+                      </button>
+                    </div>
+                  </form>
+                </div>
               ) : null}
             </div>
           </div>

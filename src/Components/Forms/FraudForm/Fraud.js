@@ -4,6 +4,8 @@ import FormImage from "../../../Images/requestImage.jpg";
 import { useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../../../context/GlobalContext";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const Fraud = () => {
   // const [user, setUser] = useState({
@@ -57,10 +59,21 @@ const Fraud = () => {
   };
   return (
     <>
-      <div class="fraud_wrapper">
-        <div class="fraud_inner">
-          <div class="fraud_image-holder">
-            <img src={FormImage} alt="" />
+      <div className="fraud_wrapper">
+        <div className="fraud_inner">
+          <Link to="/search">
+            <KeyboardBackspaceIcon
+              style={{
+                position: "relative",
+                left: "20px",
+                top: "20px",
+                fontSize: "30px",
+                color: "black",
+              }}
+            />
+          </Link>
+          <div className="fraud_image-holder">
+            <img src={FormImage} alt="" className="fraud_img" />
           </div>
           <form onSubmit={handleFormSubmit} className="fraud_form">
             <h3 className="fraud_title">Fraud NGO </h3>
@@ -84,7 +97,7 @@ const Fraud = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div class="fraud_form-row">
+            <div className="fraud_form-row">
               <input
                 name="address"
                 type="address"
@@ -93,7 +106,6 @@ const Fraud = () => {
                 onChange={handleInputChange}
               />
             </div>
-
             <div class="fraud_form-row">
               <input
                 name="activity"

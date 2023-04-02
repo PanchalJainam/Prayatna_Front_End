@@ -14,6 +14,7 @@ import Update from "../Components/NGOdeshboeard/Update.jsx";
 // import volunteer from "../Components/Volunteer";
 import Fraud from "../Components/Forms/FraudForm/Fraud.js";
 import Volunteer from "../Components/Volunteer/Volunteer";
+
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
 import FeedbackForm from "../Components/Forms/FeedbackForm/Feedbackform.js";
@@ -58,7 +59,7 @@ export const Router = () => {
           <Route path="/search/request">
             <Route index element={<Req />} />
           </Route>
-          <Route path="/feedback">
+          <Route path="/search/feedback">
             <Route index element={<FeedbackForm />} />
           </Route>
         </Routes>
