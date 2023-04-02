@@ -3,28 +3,33 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./RequestCard.css";
 import { useGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
+import { Button } from "@mui/material";
 const RequestCard = (props) => {
   const [data, setData] = useState([]);
   const { state, setState } = useGlobalContext();
 
-  useEffect(() => {
+  const setRequestData = () => {
     if (state?.userData?._id) {
       axios
         .get(`http://localhost:5000/request-all/${state.userData._id}`)
         .then((res) => setData(res.data))
         .catch((e) => console.log(e));
     }
+  };
+
+  useEffect(() => {
+    setRequestData();
   }, [state]);
 
-  const accepted = () => {
-    alert("Hello");
+  const accepted = (_id) => {
     axios
-      .put(`http://localhost:5000/accepet-request/${state.userData._id}`)
-      .then((res) => setData(res.data))
+      .put(`http://localhost:5000/request/${_id}`, {
+        email: state.userData.email,
+      })
+      .then((res) => setRequestData())
       .catch((e) => console.log(e));
   };
 
-  console.log({ data });
   return (
     <>
       <div className="container-fluid mt-3">
@@ -57,13 +62,12 @@ const RequestCard = (props) => {
                     </span>
                     <p class="card-text"> {user_id}</p>
                     {/* <p class="card-text">{address}</p> */}
-                    <a
-                      href="/myprofile"
+                    <Button
                       class="btn btn-primary"
-                      onClick={accepted}
+                      onClick={() => accepted(_id)}
                     >
                       Accept Request
-                    </a>
+                    </Button>
                     <a href="/myprofile" class="btn btn-primary ms-1">
                       Decline Request
                     </a>

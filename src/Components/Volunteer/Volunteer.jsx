@@ -15,7 +15,6 @@ const Volunteer = () => {
     email: "",
     contact_number: "",
     occupation: "",
-    gender: choice,
     address: "",
   });
 
@@ -27,15 +26,10 @@ const Volunteer = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (name === "gender") {
-      setChoice((prev) => {
-        return { ...prev, [name]: choice };
-      });
-    } else {
-      setData((prev) => {
-        return { ...prev, [name]: value };
-      });
-    }
+
+    setData((prev) => {
+      return { ...prev, [name]: value };
+    });
   };
 
   // function validEmail() {
@@ -61,9 +55,8 @@ const Volunteer = () => {
       e.preventDefault();
 
       // console.log({ user });
-      const res = await axios.post("/volunteer", data);
-      console.log(data.fname);
-      console.log(data.contact_number.length);
+      const res = await axios.post("/volunteer", { ...data, gender: choice });
+      console.log({ res });
 
       if (
         parseInt(data.contact_number.length) > 10 ||
