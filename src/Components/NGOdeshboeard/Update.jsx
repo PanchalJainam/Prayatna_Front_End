@@ -4,36 +4,30 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import axios from "axios";
+import { useGlobalContext } from "../../context/GlobalContext";
 const Update = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
+
+  const { state, setState } = useGlobalContext();
+
   useEffect(() => {
-    axios
-      .get(`http://localhost:5000/regngos/64250e01aa915028977dd56f`)
-      .then((res) => setData(res.data))
-      .catch((e) => console.log(e));
-  }, []);
+    if (state?.userData?._id) {
+      axios
+        .get(`http://localhost:5000/regngos/${state.userData._id}`)
+        .then((res) => setData(res.data))
+        .catch((e) => console.log(e));
+    }
+  }, [state]);
 
   const handleUpdateForm = (e) => {
     e.preventDefault();
-
-    axios
-      .put(`http://localhost:5000/regngos/64250e01aa915028977dd56f`, data)
-      .then((res) => alert("Data Update Successfully"))
-      .catch((e) => console.log(e));
+    if (state?.userData?._id) {
+      axios
+        .put(`http://localhost:5000/regngos/${state.userData._id}`, data)
+        .then((res) => setState(res.data))
+        .catch((e) => console.log(e));
+    }
   };
-
-  // const handleUpdateForm = (e) => {
-  //   e.preventDefault();
-
-  //   try {
-  //     axios.put(`http://localhost:5000/regngos/64226c146859798f882e256d`, {
-  //       data,
-  //     });
-  //     alert("User name updated successfully!");
-  //   } catch (err) {
-  //     alert("Error updating user name");
-  //   }
-  // };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

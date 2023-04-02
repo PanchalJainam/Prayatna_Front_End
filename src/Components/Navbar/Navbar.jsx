@@ -21,7 +21,7 @@ import { useGlobalContext } from "../../context/GlobalContext";
 const commonConfig = [
   {
     name: "Home",
-    route: "/home",
+    route: "/",
   },
   {
     name: "about",
