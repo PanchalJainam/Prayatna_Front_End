@@ -14,9 +14,10 @@ import Update from "../Components/NGOdeshboeard/Update.jsx";
 // import volunteer from "../Components/Volunteer";
 import Fraud from "../Components/Forms/FraudForm/Fraud.js";
 import Volunteer from "../Components/Volunteer/Volunteer";
-import Feedback from "../Components/Forms/FeedbackForm/feedbackform.js";
+
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
+import FeedbackForm from "../Components/Forms/FeedbackForm/feedbackform.js";
 
 export const Router = () => {
   return (
@@ -57,9 +58,6 @@ export const Router = () => {
           </Route>
           <Route path="/search/request">
             <Route index element={<Req />} />
-          </Route>
-          <Route path="/search/feedback">
-            <Route index element={<Feedback />} />
           </Route>
         </Routes>
       </BrowserRouter>
