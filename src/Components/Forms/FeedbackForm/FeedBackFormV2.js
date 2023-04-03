@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Feedback.css";
+import "./feedback.css";
 import { Rating } from "@mui/material";
 import FeedbackImage from "../../../Images/FeedbackImage.jpg";
 import { useGlobalContext } from "../../../context/GlobalContext";
