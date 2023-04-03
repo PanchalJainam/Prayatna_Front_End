@@ -37,6 +37,10 @@ const routeConfig = {
       route: "/myprofile",
     },
     {
+      name: "volunteer",
+      route: "/volunteerdata",
+    },
+    {
       name: "Contact Us",
       route: "/contact",
     },
@@ -144,6 +148,7 @@ const signupButton = ({ name, route }) => {
           color: "black",
           backgroundColor: "white",
           fontWeight: "600",
+          textDecoration: "none",
         }}
       >
         {name}
