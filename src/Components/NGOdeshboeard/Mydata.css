@@ -59,15 +59,15 @@
     flex-direction: column;
     gap: 10px;
   }
- 
+
   .data-btn_change {
     margin-left: 0px;
-  }
-  .data-Ngo_name{
-    font-size: 40px;
-  }
-  .data-btn_edit{
     width: 200px;
   }
-  
+  .data-Ngo_name {
+    font-size: 40px;
+  }
+  .data-btn_edit {
+    width: 200px;
+  }
 }

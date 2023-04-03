@@ -4,6 +4,7 @@ import "./RequestCard.css";
 import { useGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
 import { Button } from "@mui/material";
+import HistoryIcon from "@mui/icons-material/History";
 const RequestCard = (props) => {
   const [data, setData] = useState([]);
   const { state, setState } = useGlobalContext();
@@ -53,31 +54,40 @@ const RequestCard = (props) => {
           })}
         </div>
       </div> */}
+      <div className="pre_history_req">
+        <Button
+          variant="contained"
+          sx={{ marginTop: "10px", marginBottom: "20px" }}
+          startIcon={<HistoryIcon />}
+        >
+          History
+        </Button>
+      </div>
       <div className="container">
         <div className="row">
           {data.map((curNgo) => {
             const { _id, user_name, user_id } = curNgo;
             return (
-              <div className="col col-sm-6 col-lg-4">
-                <div class="card mb-3" key={_id}>
+              <div className="col-12 col-sm-6 col-lg-4">
+                <div className="card mb-3" key={_id}>
                   {/* <img className="ngo_img" src={pic} alt="Card" /> */}
-                  <div class="card-body">
+                  <div className="card-body">
                     <span
-                      class="fa user_icon fa-user d-flex"
+                      className="fa user_icon fa-user d-flex"
                       aria-hidden="true"
                     >
-                      <h4 class="caerd-title d-flex">{user_name}</h4>
+                      <h4 className="card-title d-flex">{user_name}</h4>
                     </span>
-                    <p class="card-text"> {user_id}</p>
-                    {/* <p class="card-text">{address}</p> */}
+                    <p className="card-text"> {user_id}</p>
+                    {/* <p className="card-text">{address}</p> */}
                     <Button
-                      class="btn btn-primary"
+                      className="btn btn-primary"
                       onClick={() => accepted(_id)}
                     >
                       Accept Request
                     </Button>
                     <Button
-                      class="btn btn-primary"
+                      className="btn btn-primary"
                       onClick={() => rejected(_id)}
                     >
                       Decline Request

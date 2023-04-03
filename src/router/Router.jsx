@@ -18,7 +18,6 @@ import Changepwd from "../Components/Forms/ChangePasswordForm/Change.jsx";
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
 import FeedbackForm from "../Components/Forms/FeedbackForm/FeedBackFormV2.js";
-import Volunteerapi from "../Components/Fetch-Api/VolunteerApi/Volunteerapi.js";
 
 export const Router = () => {
   return (
@@ -65,9 +64,6 @@ export const Router = () => {
           </Route>
           <Route path="/search/request">
             <Route index element={<Req />} />
-          </Route>
-          <Route path="/feedback">
-            <Route index element={<FeedbackForm />} />
           </Route>
         </Routes>
       </BrowserRouter>
