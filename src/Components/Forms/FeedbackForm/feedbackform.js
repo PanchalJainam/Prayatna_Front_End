@@ -1,5 +1,5 @@
 import React from "react";
-import "./feedback.css";
+import "./Feedback.css";
 import { Rating } from "@mui/material";
 import FeedbackImage from "../../../Images/FeedbackImage.jpg";
 
