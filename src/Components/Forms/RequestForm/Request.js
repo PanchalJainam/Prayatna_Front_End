@@ -28,7 +28,7 @@ const Form = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/report", {
+      const res = await axios.post("/request", {
         ...user,
         user_id: state.userData._id,
         ngo_id,

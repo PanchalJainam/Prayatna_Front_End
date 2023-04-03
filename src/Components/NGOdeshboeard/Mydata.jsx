@@ -39,7 +39,9 @@ const Mydata = () => {
             <Link to="/myprofile/edit">
               <button className=" data-btn_edit">Edit Profile</button>
             </Link>
-            <button className="data-btn_change">Change Password</button>
+            <Link to="/myprofile/changepassword">
+              <button className="data-btn_change">Change Password</button>
+            </Link>
           </div>
         </div>
       </div>

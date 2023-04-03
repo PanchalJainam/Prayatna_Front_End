@@ -14,7 +14,7 @@ import Update from "../Components/NGOdeshboeard/Update.jsx";
 // import volunteer from "../Components/Volunteer";
 import Fraud from "../Components/Forms/FraudForm/Fraud.js";
 import Volunteer from "../Components/Volunteer/Volunteer";
-
+import Changepwd from "../Components/Forms/ChangePasswordForm/Change.jsx";
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
 import FeedbackForm from "../Components/Forms/FeedbackForm/FeedBackFormV2.js";
@@ -52,6 +52,9 @@ export const Router = () => {
           </Route>
           <Route path="/myprofile/edit">
             <Route index element={<Update />} />
+          </Route>
+          <Route path="/myprofile/changepassword">
+            <Route index element={<Changepwd />} />
           </Route>
           <Route path="/contact">
             <Route index element={<Contact />} />

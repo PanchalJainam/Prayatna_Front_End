@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./feedback.css";
+import "./Feedback.css";
 import { Rating } from "@mui/material";
 import FeedbackImage from "../../../Images/FeedbackImage.jpg";
 import { useGlobalContext } from "../../../context/GlobalContext";
@@ -9,7 +9,7 @@ const Feedbackform = () => {
   const [value, setValue] = React.useState(0); // for rating
 
   const [data, setData] = useState({
-    email: "",
+    emailfeedback: "",
     message: "",
   });
 
@@ -54,7 +54,7 @@ const Feedbackform = () => {
             <h3 className="feed_title">Feedback Form</h3>
             <div className="feed_form-row">
               <input
-                name="email"
+                name="emailfeedback"
                 type="email"
                 className="feed_form-control feed_input"
                 placeholder="Email"
