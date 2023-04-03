@@ -3,6 +3,7 @@ import { Box, Container } from "@mui/system";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Activty.css";
+import { Link } from "react-router-dom";
 
 const Activity = () => {
   return (
@@ -37,13 +38,15 @@ const Activity = () => {
               </Button>
             </Grid> */}
             <Grid item>
-              <Button
-                variant="outlined"
-                color="primary"
-                sx={{ fontSize: "18px" }}
-              >
-                About Us
-              </Button>
+              <Link to="/contact" style={{ textDecoration: "none" }}>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  sx={{ fontSize: "18px" }}
+                >
+                  More info
+                </Button>
+              </Link>
             </Grid>
           </Grid>
           {/* <Typography gutterBottom /> */}

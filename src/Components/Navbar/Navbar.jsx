@@ -24,7 +24,7 @@ const commonConfig = [
     route: "/",
   },
   {
-    name: "about",
+    name: "About",
     route: "/about",
   },
 ];
@@ -61,6 +61,10 @@ const routeConfig = {
   withoutLogin: [
     ...commonConfig,
     {
+      name: "Contact",
+      route: "/contact",
+    },
+    {
       name: "Login",
       route: "/login",
     },
@@ -83,10 +87,10 @@ const createRoute = ({ name, route, open }) => {
 
 const loginButton = ({ name, route }) => {
   return (
-    <div className="nav-item">
+    <div className="nav-item nav_login_btn">
       <Link
         to={route}
-        sx={{
+        style={{
           textDecoration: "none",
         }}
       >
@@ -95,7 +99,7 @@ const loginButton = ({ name, route }) => {
           variant="container"
           sx={{
             color: "white",
-            marginTop: "7px",
+            // marginTop: "7px",
             width: "auto",
             border: "2px solid white",
             borderRadius: "10px",
@@ -110,13 +114,13 @@ const loginButton = ({ name, route }) => {
 };
 const logoutButton = ({ name, navigate, setUserData }) => {
   return (
-    <div className="nav-item">
+    <div className="nav-item nav_logout_btn">
       <Button
         aria-haspopup="true"
         variant="container"
         sx={{
           color: "white",
-          marginTop: "7px",
+          // marginTop: "7px",
           width: "auto",
           border: "2px solid white",
           borderRadius: "10px",
@@ -136,19 +140,21 @@ const logoutButton = ({ name, navigate, setUserData }) => {
 
 const signupButton = ({ name, route }) => {
   return (
-    <Link to={route}>
-      <button
-        className="btn btn-light nav-item reg_btn"
-        style={{
-          width: "auto",
-          color: "black",
-          backgroundColor: "white",
-          fontWeight: "600",
-        }}
-      >
-        {name}
-      </button>
-    </Link>
+    <div className="nav_signup_btn">
+      <Link to={route}>
+        <button
+          className="btn btn-light nav-item reg_btn"
+          style={{
+            width: "auto",
+            color: "black",
+            backgroundColor: "white",
+            fontWeight: "600",
+          }}
+        >
+          {name}
+        </button>
+      </Link>
+    </div>
   );
 };
 

@@ -336,7 +336,7 @@ const Reg = () => {
                 </div>
               </form>
               {isOtp ? (
-                <div className="container" style={{ maxWidth: "50px" }}>
+                <div className="container" style={{}}>
                   <form onSubmit={handleOtpSubmit}>
                     <input
                       type="text"
