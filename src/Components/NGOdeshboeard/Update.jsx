@@ -4,9 +4,24 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import axios from "axios";
+import { Alert, Button, IconButton, Snackbar } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { useGlobalContext } from "../../context/GlobalContext";
 const Update = () => {
   const [data, setData] = useState([]);
+
+  const [message, setMessage] = useState({
+    open: false,
+    message: "",
+    status: "",
+  });
+
+  const handleClose = () => {
+    setMessage({
+      open: false,
+      message: "",
+    });
+  };
 
   const { state, setState } = useGlobalContext();
 
@@ -26,6 +41,19 @@ const Update = () => {
         .put(`http://localhost:5000/regngos/${state.userData._id}`, data)
         .then((res) => setState(res.data))
         .catch((e) => console.log(e));
+
+      // alert("Data Updated Successfully");
+      setMessage({
+        open: true,
+        message: "Data Updated Successfully",
+        status: "success",
+      });
+    } else {
+      setMessage({
+        open: true,
+        message: "Not Updated",
+        status: "error",
+      });
     }
   };
 
@@ -35,6 +63,23 @@ const Update = () => {
       return { ...prev, [name]: value };
     });
   };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
   return (
     <>
       <div className="container-fluid main_update_container mt-3">
@@ -164,6 +209,22 @@ const Update = () => {
           </form>
         </div>
       </div>
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={message.open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={message.message}
+        action={action}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={message.status}
+          sx={{ width: "100%" }}
+        >
+          {message.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 };

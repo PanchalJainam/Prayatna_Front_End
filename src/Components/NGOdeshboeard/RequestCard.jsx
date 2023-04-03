@@ -3,51 +3,47 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./RequestCard.css";
 import { useGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
+import { Button } from "@mui/material";
 const RequestCard = (props) => {
   const [data, setData] = useState([]);
   const { state, setState } = useGlobalContext();
 
-  const [status, setStatus] = useState({
-    status: "Accepted",
-  });
-
-  const setacceptVal = () => {
-    let status = "accepted";
-    return status;
-  };
-
-  const setdeclineVal = () => {
-    let status = "rejected";
-    return status;
-  };
-  console.log({ status });
-
-  useEffect(() => {
+  const setRequestData = () => {
     if (state?.userData?._id) {
       axios
         .get(`http://localhost:5000/request-all/${state.userData._id}`)
         .then((res) => setData(res.data))
         .catch((e) => console.log(e));
     }
+  };
+
+  useEffect(() => {
+    setRequestData();
   }, [state]);
 
-  axios
-    .post(`http://localhost:5000/accepet-request/${state.userData._id}`)
-    .then((res) => setData(res.data))
-    .catch((e) => console.log(e));
+  const accepted = (_id) => {
+    axios
+      .put(`http://localhost:5000/request-accept/${_id}`, {
+        email: state.userData.email,
+      })
+      .then((res) => setRequestData())
+      .catch((e) => console.log(e));
+  };
 
-  axios
-    .post(`http://localhost:5000/decline-request/${state.userData._id}`)
-    .then((res) => setData(res.data))
-    .catch((e) => console.log(e));
-
-  console.log({ data });
+  const rejected = (_id) => {
+    axios
+      .put(`http://localhost:5000/request-rejected/${_id}`, {
+        email: state.userData.email,
+      })
+      .then((res) => setRequestData())
+      .catch((e) => console.log(e));
+  };
   return (
     <>
       <div className="container-fluid mt-3">
         <h2 className="text-center">{props.title}</h2>
       </div>
-      /
+
       {/* 
       <div className="Card-container container-fluid">
         <div className="No-request-container mt-3">
@@ -74,21 +70,18 @@ const RequestCard = (props) => {
                     </span>
                     <p class="card-text"> {user_id}</p>
                     {/* <p class="card-text">{address}</p> */}
-                    <a
-                      href="/accept-request"
+                    <Button
                       class="btn btn-primary"
-                      onChange={status.status}
-                      onClick={setacceptVal}
+                      onClick={() => accepted(_id)}
                     >
                       Accept Request
-                    </a>
-                    <a
-                      href="/decline-request"
-                      class="btn btn-primary ms-1"
-                      onClick={setdeclineVal}
+                    </Button>
+                    <Button
+                      class="btn btn-primary"
+                      onClick={() => rejected(_id)}
                     >
                       Decline Request
-                    </a>
+                    </Button>
                   </div>
                 </div>
               </div>

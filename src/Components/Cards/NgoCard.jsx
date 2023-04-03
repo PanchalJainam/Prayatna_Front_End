@@ -9,10 +9,10 @@ const NgoCard = ({ ngo }) => {
           {ngo.map((curNgo) => {
             const { _id, ngo_name, activity, address } = curNgo;
             return (
-              <div className="col col-sm-6 col-lg-4">
+              <div className="col col-sm-6 col-lg-4 mt-5">
                 <div class="card mb-3" key={_id}>
                   {/* <img className="ngo_img" src={pic} alt="Card" /> */}
-                  <div class="card-body">
+                  <div class="card-body shadow">
                     <h4 class="card-title">{ngo_name}</h4>
                     <p class="card-text">{activity}</p>
                     <p class="card-text">{address}</p>
@@ -22,7 +22,10 @@ const NgoCard = ({ ngo }) => {
                     >
                       Send Request
                     </a>
-                    <a href="/search/fraud" class="btn btn-primary ms-1">
+                    <a
+                      href={`/search/report?ngo_id=${_id}`}
+                      class="btn btn-primary ms-1"
+                    >
                       Report to Ngo
                     </a>
                   </div>

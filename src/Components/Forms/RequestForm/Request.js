@@ -27,7 +27,6 @@ const Form = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    alert("hello jinal");
     try {
       const res = await axios.post("/request", {
         ...user,
