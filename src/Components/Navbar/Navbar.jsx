@@ -65,6 +65,10 @@ const routeConfig = {
       route: "/contact",
     },
     {
+      name: "Search",
+      route: "/search",
+    },
+    {
       name: "Login",
       route: "/login",
     },
@@ -78,7 +82,7 @@ const routeConfig = {
 const createRoute = ({ name, route, open }) => {
   return (
     <li className="nav-item nav_li">
-      <Link className="nav-link " aria-current="page" to={route} tabindex="-1">
+      <Link className="nav-link" aria-current="page" to={route} tabindex="-1">
         {name}
       </Link>
     </li>
@@ -212,7 +216,7 @@ const Navbar = () => {
             className="collapse navbar-collapse  justify-content-center"
             id="navbarSupportedContent"
           >
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav ml-auto nav_decoration">
               {routeConfig[state.userType]?.map((data) => {
                 const { name, route } = data;
                 let body;

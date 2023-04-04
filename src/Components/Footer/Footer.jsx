@@ -32,11 +32,15 @@ const Footer = () => {
                 Help To Others
               </p>
             </div>
-            <Link to="/registration" style={{textDecoration:"none"}}>
-            {/* <button type="submit" className="text-center f-btn-register">
+            <Link to="/volunteer" style={{ textDecoration: "none" }}>
+              {/* <button type="submit" className="text-center f-btn-register">
               Register NGO
             </button> */}
-              <Button variant="contained" color="primary" sx={{fontSize:"18px",marginTop:"8px"}}>
+              <Button
+                variant="contained"
+                color="primary"
+                sx={{ fontSize: "18px", marginTop: "8px" }}
+              >
                 Be come Volunteer
               </Button>
             </Link>
@@ -67,7 +71,6 @@ const Footer = () => {
                   fontSize: "15px",
                 }}
                 to="/"
-                
               >
                 Home
               </Link>
@@ -78,7 +81,6 @@ const Footer = () => {
                   fontSize: "15px",
                 }}
                 to="/about"
-               
               >
                 About Us
               </Link>

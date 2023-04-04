@@ -17,11 +17,22 @@ import Volunteer from "../Components/Volunteer/Volunteer";
 import Changepwd from "../Components/Forms/ChangePasswordForm/Change.jsx";
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
-import FeedbackForm from "../Components/Forms/FeedbackForm/Feedbackform.js";
+import FeedbackForm from "../Components/Forms/FeedbackForm/FeedBackFormV2.js";
+import { useGlobalContext } from "../context/GlobalContext.js";
 
 export const Router = () => {
+  const { state, setState } = useGlobalContext();
+  function checkLogin() {
+    if (state.userData && state.userData._id) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   return (
     <>
+      {/* {checkLogin()} */}
       <BrowserRouter>
         {/* <Navbar /> */}
         {/* <Form /> */}
@@ -41,26 +52,41 @@ export const Router = () => {
           <Route path="/login">
             <Route index element={<NgoLogin />} />
           </Route>
+          {/* <Route path="/volunteer">
+            <Route
+              index
+              element={checkLogin() ? <Volunteer /> : <NgoLogin />}
+            />
+          </Route> */}
           <Route path="/volunteer">
             <Route index element={<Volunteer />} />
           </Route>
+          <Route path="/feedback">
+            <Route
+              index
+              element={checkLogin() ? <FeedbackForm /> : <NgoLogin />}
+            />
+          </Route>
           <Route path="/search/report">
-            <Route index element={<Fraud />} />
+            <Route index element={checkLogin() ? <Fraud /> : <NgoLogin />} />
           </Route>
           <Route path="/myprofile">
-            <Route index element={<Mydata />} />
+            <Route index element={checkLogin() ? <Mydata /> : <NgoLogin />} />
           </Route>
           <Route path="/myprofile/edit">
-            <Route index element={<Update />} />
+            <Route index element={checkLogin() ? <Update /> : <NgoLogin />} />
           </Route>
           <Route path="/myprofile/changepassword">
-            <Route index element={<Changepwd />} />
+            <Route
+              index
+              element={checkLogin() ? <Changepwd /> : <NgoLogin />}
+            />
           </Route>
           <Route path="/contact">
             <Route index element={<Contact />} />
           </Route>
           <Route path="/search/request">
-            <Route index element={<Req />} />
+            <Route index element={checkLogin() ? <Req /> : <NgoLogin />} />
           </Route>
         </Routes>
       </BrowserRouter>

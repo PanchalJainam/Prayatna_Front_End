@@ -15,6 +15,25 @@ nav {
   width: auto;
   margin-left: 25px;
 }
+.nav_decoration .nav-link:hover {
+  background-color: #3d8de19a;
+  border-radius: 10px;
+  color: white;
+}
+
+/* .nav_decoration .nav-link {
+  position: relative;
+}
+.nav_decoration .nav-link ::after {
+  content: "";
+  width: 10px;
+  height: 3px;
+  background: #f8ba43;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  transition: 0.5s;
+} */
 
 .nav_login_btn {
   position: absolute;
