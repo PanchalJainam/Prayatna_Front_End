@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./Feedback.css";
+import "./feedback.css";
 import { Rating } from "@mui/material";
+import { Alert, Button, IconButton, Snackbar } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import FeedbackImage from "../../../Images/FeedbackImage.jpg";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+// import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useGlobalContext } from "../../../context/GlobalContext";
 import axios from "axios";
 
