@@ -5,6 +5,7 @@ import { useGlobalContext } from "../../context/GlobalContext";
 import axios from "axios";
 import { Button } from "@mui/material";
 import HistoryIcon from "@mui/icons-material/History";
+import { Link } from "react-router-dom";
 const RequestCard = (props) => {
   const [data, setData] = useState([]);
   const { state, setState } = useGlobalContext();
@@ -55,18 +56,25 @@ const RequestCard = (props) => {
         </div>
       </div> */}
       <div className="pre_history_req">
-        <Button
-          variant="contained"
-          sx={{ marginTop: "10px", marginBottom: "20px" }}
-          startIcon={<HistoryIcon />}
-        >
-          History
-        </Button>
+        <Link to="/historydata">
+          <Button
+            variant="contained"
+            sx={{
+              marginTop: "10px",
+              marginBottom: "20px",
+              textDecoration: "none",
+            }}
+            startIcon={<HistoryIcon />}
+          >
+            History
+          </Button>
+        </Link>
+        {/* <p>{`${state.userData._id}`}</p> */}
       </div>
       <div className="container">
         <div className="row">
           {data.map((curNgo) => {
-            const { _id, user_name, user_id } = curNgo;
+            const { _id, user_name, status, time, message } = curNgo;
             return (
               <div className="col-12 col-sm-6 col-lg-4">
                 <div className="card mb-3" key={_id}>
@@ -76,22 +84,32 @@ const RequestCard = (props) => {
                       className="fa user_icon fa-user d-flex"
                       aria-hidden="true"
                     >
-                      <h4 className="card-title d-flex">{user_name}</h4>
+                      <h4 className="card-title d-flex reqcard_title">
+                        {user_name}
+                      </h4>
                     </span>
-                    <p className="card-text"> {user_id}</p>
+                    <p className="card-text">
+                      <b>Date:</b> {time}
+                    </p>
+                    <p className="card-text">
+                      <b>Status:</b> {status}
+                    </p>
+                    <p className="card-text">
+                      <b>Need:</b> {message}
+                    </p>
                     {/* <p className="card-text">{address}</p> */}
-                    <Button
+                    <button
                       className="btn btn-primary"
                       onClick={() => accepted(_id)}
                     >
                       Accept Request
-                    </Button>
-                    <Button
-                      className="btn btn-primary"
+                    </button>
+                    <button
+                      className="btn btn-primary ms-1 btn-danger"
                       onClick={() => rejected(_id)}
                     >
                       Decline Request
-                    </Button>
+                    </button>
                   </div>
                 </div>
               </div>

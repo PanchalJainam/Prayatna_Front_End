@@ -30,8 +30,8 @@ const Mydata = () => {
           {/* <h4>{data.id}</h4> */}
           <h1
             className="h1 data-Ngo_name"
-            value={data.ngo_name}
-            onChange={(e) => setData(e.target.value)}
+            // value={data.ngo_name}
+            // onChange={(e) => setData(e.target.value)}
           >
             {data.ngo_name}
           </h1>

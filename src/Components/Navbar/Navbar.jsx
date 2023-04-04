@@ -37,6 +37,10 @@ const routeConfig = {
       route: "/myprofile",
     },
     {
+      name: "volunteer",
+      route: "/volunteerdata",
+    },
+    {
       name: "Contact Us",
       route: "/contact",
     },
@@ -144,21 +148,19 @@ const logoutButton = ({ name, navigate, setUserData }) => {
 
 const signupButton = ({ name, route }) => {
   return (
-    <div className="nav_signup_btn">
-      <Link to={route}>
-        <button
-          className="btn btn-light nav-item reg_btn"
-          style={{
-            width: "auto",
-            color: "black",
-            backgroundColor: "white",
-            fontWeight: "600",
-          }}
-        >
-          {name}
-        </button>
-      </Link>
-    </div>
+    <Link to={route}>
+      <button
+        className="btn btn-light nav-item reg_btn"
+        style={{
+          width: "auto",
+          color: "black",
+          backgroundColor: "white",
+          fontWeight: "600",
+        }}
+      >
+        {name}
+      </button>
+    </Link>
   );
 };
 

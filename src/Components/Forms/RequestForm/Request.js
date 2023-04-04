@@ -5,12 +5,20 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../../../context/GlobalContext";
 import axios from "axios";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { Alert, Button, IconButton, Snackbar } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+
 const Form = () => {
   const [user, setUser] = useState({
     user_name: "",
     email: "",
     message: "",
     contact: "",
+  });
+  const [message, setMessage] = useState({
+    open: false,
+    message: "",
+    status: "",
   });
 
   const [searchParams, setSearchParams] = useSearchParams();
@@ -25,8 +33,34 @@ const Form = () => {
     });
   };
 
+  const validation = () => {
+    if (
+      user.user_name === "" ||
+      user.email === "" ||
+      user.message === "" ||
+      user.contact === ""
+    ) {
+      setMessage({
+        open: true,
+        message: "All Fields Are Must be Required",
+        status: "error",
+      });
+    } else if (
+      parseInt(user.contact.length) > 10 ||
+      parseInt(user.contact.length) < 10
+    ) {
+      setMessage({
+        open: true,
+        message: "Number must be 10 digit",
+        error: "error",
+        status: "error",
+      });
+    }
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    validation();
     try {
       const res = await axios.post("/request", {
         ...user,
@@ -38,6 +72,29 @@ const Form = () => {
       console.log(error);
     }
   };
+
+  const handleClose = () => {
+    setMessage({
+      open: false,
+      message: "",
+    });
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
 
   return (
     <>
@@ -83,6 +140,7 @@ const Form = () => {
                 className="req_form-control"
                 placeholder="Mobile No"
                 name="contact"
+                maxLength={10}
                 onChange={handleInputChange}
               />
             </div>
@@ -102,6 +160,23 @@ const Form = () => {
           </form>
         </div>
       </div>
+
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={message.open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={message.message}
+        action={action}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={message.status}
+          sx={{ width: "100%" }}
+        >
+          {message.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 };

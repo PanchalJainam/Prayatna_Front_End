@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
-import "./feedback.css";
+import "./Feedback.css";
 import { Rating } from "@mui/material";
 import FeedbackImage from "../../../Images/FeedbackImage.jpg";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useGlobalContext } from "../../../context/GlobalContext";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const Feedbackform = () => {
   const [value, setValue] = React.useState(0); // for rating
 
   const [data, setData] = useState({
+    name: "",
     emailfeedback: "",
     message: "",
+  });
+
+  const [message, setMessage] = useState({
+    open: false,
+    message: "",
+    status: "",
   });
 
   // const [user, setUser] = useState();
@@ -40,10 +46,38 @@ const Feedbackform = () => {
     try {
       e.preventDefault();
       const res = await axios.post("/feedback", { ...data, rating: value });
+      setMessage({
+        open: true,
+        message: "Send Feedback successfully.",
+        status: "success",
+      });
     } catch (err) {
       console.log(err);
     }
   };
+
+  const handleClose = () => {
+    setMessage({
+      open: false,
+      message: "",
+    });
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
 
   return (
     <>
@@ -61,6 +95,16 @@ const Feedbackform = () => {
                 className="feed_form-control feed_input"
                 placeholder="Email"
                 value={data?.email}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="feed_form-row">
+              <input
+                name="name"
+                type="text"
+                className="feed_form-control feed_input"
+                placeholder="Name"
+                value={data?.user_name}
                 onChange={handleInputChange}
               />
             </div>
@@ -98,6 +142,23 @@ const Feedbackform = () => {
           </form>
         </div>
       </div>
+
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={message.open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={message.message}
+        action={action}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={message.status}
+          sx={{ width: "100%" }}
+        >
+          {message.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 };
