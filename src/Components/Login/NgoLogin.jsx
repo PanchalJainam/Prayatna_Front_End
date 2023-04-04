@@ -24,7 +24,11 @@ import { useGlobalContext } from "../../context/GlobalContext";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState({});
+  const [message, setMessage] = useState({
+    open: false,
+    message: "",
+    status: "",
+  });
   const { state, setState } = useGlobalContext();
 
   const [login, setLogin] = useState({
@@ -50,11 +54,12 @@ const Login = () => {
         message: "Fields Are Required",
         status: "error",
       });
-      return;
     }
     const res = await axios.post("/login", { email, password });
 
-    if (res.status === 201) {
+    console.log({ res });
+
+    if (res) {
       setMessage({
         open: true,
         message: "Login Successfully",
@@ -75,7 +80,7 @@ const Login = () => {
         userData,
       });
       navigate("/");
-    } else if (res.status === 413) {
+    } else {
       alert("User Not Registerd");
       navigate("/login");
     }
@@ -208,22 +213,6 @@ const Login = () => {
           </form>
         </Box>
       </div>
-      {/* <Snackbar
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={message.open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        message={message.message}
-        action={action}
-      >
-        <Alert
-          onClose={handleClose}
-          severity={message.status}
-          sx={{ width: "100%" }}
-        >
-          {message.message}
-        </Alert>
-      </Snackbar> */}
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "right" }}
         open={message.open}

@@ -6,6 +6,10 @@
   max-width: auto;
 }
 
+.reqcard_title {
+  margin-left: 10px;
+}
+
 .pre_history_req {
   display: flex;
   justify-content: space-evenly;

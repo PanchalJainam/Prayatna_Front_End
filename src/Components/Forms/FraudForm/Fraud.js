@@ -6,7 +6,8 @@ import { useGlobalContext } from "../../../context/GlobalContext";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-
+import { Alert, Button, IconButton, Snackbar } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 const Fraud = () => {
   // const [user, setUser] = useState({
   //   ngo_name: "",
@@ -14,6 +15,35 @@ const Fraud = () => {
   //   message: "",
   //   activity: "",
   // });
+
+  const [message, setMessage] = useState({
+    open: false,
+    message: "",
+    status: "",
+  });
+
+  const handleClose = () => {
+    setMessage({
+      open: false,
+      message: "",
+    });
+  };
+
+  const action = (
+    <React.Fragment>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
 
   const [data, setData] = useState({
     ngo_name: "",
@@ -49,8 +79,19 @@ const Fraud = () => {
     });
   };
 
+  const validation = () => {
+    if (data?.ngo_name === "") {
+      setMessage({
+        open: true,
+        message: "All Fields Must Be Required",
+        status: "erroe",
+      });
+    }
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    validation();
     try {
       const res = await axios.post("/report", {
         user_id: state.userData._id,
@@ -135,6 +176,23 @@ const Fraud = () => {
           </form>
         </div>
       </div>
+
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        open={message.open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={message.message}
+        action={action}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={message.status}
+          sx={{ width: "100%" }}
+        >
+          {message.message}
+        </Alert>
+      </Snackbar>
     </>
   );
 };

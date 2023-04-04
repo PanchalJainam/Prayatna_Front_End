@@ -11,13 +11,14 @@ import Search from "../Components/Search/Search.jsx";
 import NgoLogin from "../Components/Login/NgoLogin";
 import Mydata from "../Components/NGOdeshboeard/Mydata.jsx";
 import Update from "../Components/NGOdeshboeard/Update.jsx";
-// import volunteer from "../Components/Volunteer";
 import Fraud from "../Components/Forms/FraudForm/Fraud.js";
 import Volunteer from "../Components/Volunteer/Volunteer";
 import Changepwd from "../Components/Forms/ChangePasswordForm/Change.jsx";
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
 import FeedbackForm from "../Components/Forms/FeedbackForm/FeedBackFormV2.js";
+import Volunteerapi from "../Components/Fetch-Api/VolunteerApi/Volunteerapi.js";
+import Historydata from "../Components/NGOdeshboeard/Historydata.jsx";
 
 export const Router = () => {
   return (
@@ -44,6 +45,9 @@ export const Router = () => {
           <Route path="/volunteer">
             <Route index element={<Volunteer />} />
           </Route>
+          <Route path="/feedback">
+            <Route index element={<FeedbackForm />} />
+          </Route>
           <Route path="/search/report">
             <Route index element={<Fraud />} />
           </Route>
@@ -61,6 +65,9 @@ export const Router = () => {
           </Route>
           <Route path="/contact">
             <Route index element={<Contact />} />
+          </Route>
+          <Route path="/historydata">
+            <Route index element={<Historydata />} />
           </Route>
           <Route path="/search/request">
             <Route index element={<Req />} />

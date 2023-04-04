@@ -16,6 +16,13 @@ const Feedbackform = () => {
             <h3 className="feed_title">Feedback Form</h3>
             <div className="feed_form-row">
               <input
+                type="text"
+                className="feed_form-control feed_input"
+                placeholder="Name"
+              />
+            </div>
+            <div className="feed_form-row">
+              <input
                 type="email"
                 className="feed_form-control feed_input"
                 placeholder="Email"
