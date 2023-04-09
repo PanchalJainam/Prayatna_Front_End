@@ -17,9 +17,12 @@ import Changepwd from "../Components/Forms/ChangePasswordForm/Change.jsx";
 import Toggle from "../Components/Toggle/Toggle.js";
 import Req from "../Components/Forms/RequestForm/Request.js";
 import FeedbackForm from "../Components/Forms/FeedbackForm/FeedBackFormV2.js";
+import Showfeedback from "../Components/Forms/Showfeedback/Showfeedback.jsx";
 import { useGlobalContext } from "../context/GlobalContext.js";
 import Volunteerapi from "../Components/Fetch-Api/VolunteerApi/Volunteerapi.js";
 import Historydata from "../Components/NGOdeshboeard/Historydata.jsx";
+import ShowNgo from "../Components/ShowNgo/ShowNgo.jsx";
+import { UserRequest } from "../Components/Userrequest/UserRequest.jsx";
 
 export const Router = () => {
   const { state, setState } = useGlobalContext();
@@ -53,6 +56,12 @@ export const Router = () => {
           <Route path="/login">
             <Route index element={<NgoLogin />} />
           </Route>
+          <Route path="/showfeedback">
+            <Route index element={<Showfeedback />} />
+          </Route>
+          <Route path="/user-request">
+            <Route index element={<UserRequest />} />
+          </Route>
           {/* <Route path="/volunteer">
             <Route
               index
@@ -61,6 +70,15 @@ export const Router = () => {
           </Route> */}
           <Route path="/volunteer">
             <Route index element={<Volunteer />} />
+          </Route>
+          <Route path="/feedback">
+            <Route
+              index
+              element={checkLogin() ? <FeedbackForm /> : <NgoLogin />}
+            />
+          </Route>
+          <Route path="/ngo">
+            <Route index element={checkLogin() ? <ShowNgo /> : <NgoLogin />} />
           </Route>
           <Route path="/search/report">
             <Route index element={checkLogin() ? <Fraud /> : <NgoLogin />} />

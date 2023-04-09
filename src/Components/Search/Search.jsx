@@ -37,23 +37,26 @@ const Search = () => {
   return (
     <>
       <Navbar />
-      <div className="search_container">
-        <div className="search_main">
-          <input
-            className="search_inp"
-            type="text"
-            name="search"
-            onChange={handleSearchInputChange}
-            placeholder="Activities"
-          />
-          <button type="button" className="SearchIcon">
-            <div>
-              <SearchIcon sx={{ color: "white", fontSize: "25px" }} />
-            </div>
-          </button>
+      <div className="search_top">
+        <h3 className="text-center pt-3">Find NGOs</h3>
+        <div className="search_container">
+          <div className="search_main">
+            <input
+              className="search_inp"
+              type="text"
+              name="search"
+              onChange={handleSearchInputChange}
+              placeholder="Search Your Needs Here....."
+            />
+            <button type="button" className="SearchIcon">
+              <div>
+                <SearchIcon sx={{ color: "white", fontSize: "25px" }} />
+              </div>
+            </button>
+          </div>
         </div>
+        <NgoCard ngo={data} />
       </div>
-      <NgoCard ngo={data} />
     </>
   );
 };

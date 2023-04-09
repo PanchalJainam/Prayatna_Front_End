@@ -21,7 +21,7 @@ const RequestCard = (props) => {
 
   useEffect(() => {
     setRequestData();
-  }, [state]);
+  });
 
   const accepted = (_id) => {
     axios
@@ -77,7 +77,7 @@ const RequestCard = (props) => {
             const { _id, user_name, status, time, message } = curNgo;
             return (
               <div className="col-12 col-sm-6 col-lg-4">
-                <div className="card mb-3" key={_id}>
+                <div className="card shadow mb-3" key={_id}>
                   {/* <img className="ngo_img" src={pic} alt="Card" /> */}
                   <div className="card-body">
                     <span

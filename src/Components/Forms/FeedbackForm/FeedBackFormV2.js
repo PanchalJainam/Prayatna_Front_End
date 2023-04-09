@@ -12,7 +12,7 @@ const Feedbackform = () => {
   const [value, setValue] = React.useState(0); // for rating
 
   const [data, setData] = useState({
-    name: "",
+    user_name: "",
     emailfeedback: "",
     message: "",
   });
@@ -29,7 +29,7 @@ const Feedbackform = () => {
   useEffect(() => {
     if (state?.userData?._id) {
       axios
-        .get(`http://localhost:5000/reguser/${state.userData._id}`)
+        .get(`http://localhost:5000/feeduser/${state.userData._id}`)
         .then((res) => {
           setData(res.data);
         })
@@ -47,7 +47,17 @@ const Feedbackform = () => {
   const handleFormSubmit = async (e) => {
     try {
       e.preventDefault();
-      const res = await axios.post("/feedback", { ...data, rating: value });
+      if (data.message === undefined) {
+        setMessage({
+          open: true,
+          message: "Please Fille The Message.",
+          status: "error",
+        });
+      }
+      const rating = value;
+      console.log(data, rating);
+      const res = await axios.post("/feedback", { ...data, rating });
+
       setMessage({
         open: true,
         message: "Send Feedback successfully.",
@@ -102,7 +112,7 @@ const Feedbackform = () => {
             </div>
             <div className="feed_form-row">
               <input
-                name="name"
+                name="user_name"
                 type="text"
                 className="feed_form-control feed_input"
                 placeholder="Name"

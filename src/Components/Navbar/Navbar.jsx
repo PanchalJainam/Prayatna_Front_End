@@ -33,6 +33,14 @@ const routeConfig = {
   ngo: [
     ...commonConfig,
     {
+      name: "Providers",
+      route: "/ngo",
+    },
+    {
+      name: "Feedback",
+      route: "/showfeedback",
+    },
+    {
       name: "My Profile",
       route: "/myprofile",
     },
@@ -52,7 +60,11 @@ const routeConfig = {
     ...commonConfig,
     {
       name: "Feedback",
-      route: "/feedback",
+      route: "/showfeedback",
+    },
+    {
+      name: "Request",
+      route: "/user-request",
     },
     {
       name: "Search",
@@ -65,6 +77,10 @@ const routeConfig = {
   withoutLogin: [
     ...commonConfig,
     {
+      name: "Feedback",
+      route: "/showfeedback",
+    },
+    {
       name: "Contact",
       route: "/contact",
     },
@@ -76,6 +92,7 @@ const routeConfig = {
       name: "Login",
       route: "/login",
     },
+
     {
       name: "Signup",
       route: "/registration",

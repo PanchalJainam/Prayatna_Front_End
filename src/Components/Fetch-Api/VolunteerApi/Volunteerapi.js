@@ -18,7 +18,7 @@ const Volunteerapi = () => {
       <div className="cotainer mt-2 text-center">
         <h3>Volunter Details :</h3>
         <div class=" container table-responsive">
-          <table className="table table-hover table-primary">
+          <table className="table table-hover">
             <tr>
               <th>First Name</th>
               <th>Last Name</th>

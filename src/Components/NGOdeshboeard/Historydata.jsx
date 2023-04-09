@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useGlobalContext } from "../../context/GlobalContext";
+import { Link } from "react-router-dom";
 
 const Historydata = () => {
   const [data, setData] = useState([]);
@@ -16,13 +18,29 @@ const Historydata = () => {
   return (
     <>
       <div className="container mt-3">
-        <h3>History Data Item List</h3>
+        <Link
+          to="/myprofile"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          <KeyboardBackspaceIcon
+            sx={{
+              position: "relative",
+              // top: "70px",
+              left: "10px",
+              fontSize: "30px",
+              marginRight: "10px",
+            }}
+          />
+          Back
+        </Link>
+        <h3 className="text-center">History Data Item List</h3>
         <div className="row">
           {data.map((curUser) => {
             const { _id, user_name, time, message, status } = curUser;
+            console.log(user_name, time, message, status);
             return (
-              <div className="col-12 col-sm-6 col-lg-4">
-                <div className="card mb-3" key={_id}>
+              <div className="col-12 col-sm-6 col-lg-4 mt-3">
+                <div className="card shadow mb-3" key={_id}>
                   <div className="card-body">
                     <span
                       className="fa user_icon fa-user d-flex"

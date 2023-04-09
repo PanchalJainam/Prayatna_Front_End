@@ -29,6 +29,10 @@ const Login = () => {
     message: "",
     status: "",
   });
+
+  const [user, setUser] = useState(true);
+
+  console.log(user);
   const { state, setState } = useGlobalContext();
 
   const [login, setLogin] = useState({
@@ -45,44 +49,56 @@ const Login = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const { email, password } = login;
 
-    const { email, password } = login;
+      console.log(email);
+      console.log(password);
 
-    if (login.email === "" || login.password === "") {
-      setMessage({
-        open: true,
-        message: "Fields Are Required",
-        status: "error",
-      });
-    }
-    const res = await axios.post("/login", { email, password });
-
-    console.log({ res });
-
-    if (res) {
-      setMessage({
-        open: true,
-        message: "Login Successfully",
-        status: "success",
-      });
-      alert("Login Successfully");
-      console.log({ res });
-      const { token, userData } = res.data;
-      localStorage.setItem("token", token);
-      let userType;
-      if (userData.ngo_name) {
-        userType = "ngo";
-      } else {
-        userType = "user";
+      if (!email || !password) {
+        setMessage({
+          open: true,
+          message: "Fields Are Required",
+          status: "error",
+        });
       }
-      setState({
-        userType,
-        userData,
-      });
-      navigate("/");
-    } else {
-      alert("User Not Registerd");
-      navigate("/login");
+      const res = await axios.post("/login", { email, password, user });
+
+      console.log({ res });
+
+      if (res) {
+        setMessage({
+          open: true,
+          message: "Login Successfully",
+          status: "success",
+        });
+        alert("Login Successfully");
+        console.log({ res });
+        const { token, userData } = res.data;
+        localStorage.setItem("token", token);
+        let userType;
+        if (userData.ngo_name) {
+          userType = "ngo";
+        } else {
+          userType = "user";
+        }
+        setState({
+          userType,
+          userData,
+        });
+        navigate("/");
+      } else {
+        alert("User Not Registerd");
+        navigate("/login");
+      }
+    } catch (err) {
+      if (err.response?.data?.error) {
+        setMessage({
+          open: true,
+          message: err.response.data.error,
+          status: "error",
+        });
+      }
     }
   };
   const handleClose = () => {
@@ -115,7 +131,7 @@ const Login = () => {
         <Box
           sx={{
             width: "45vh",
-            height: "75vh",
+            height: "80vh",
             backgroundColor: "rgba(255, 255, 255, 1)", //#d5f4e6
 
             borderRadius: "15px",
@@ -144,7 +160,48 @@ const Login = () => {
           >
             Login
           </Typography>
+
+          <div className="checks p-3">
+            <div className="radios d-flex">
+              <div className="form-check form-check-inline">
+                <input
+                  className="form-check-input"
+                  type="radio"
+                  name="register"
+                  id="flexRadioDefault1"
+                  vlaue="user"
+                  // checked
+                  defaultChecked
+                  onChange={(e) => setUser(true)}
+                />
+                <label class="form-check-label chk_lbl" for="flexRadioDefault1">
+                  User
+                </label>
+              </div>
+              <div className="form-check  form-check-inline">
+                <input
+                  className="form-check-input ml-4"
+                  type="radio"
+                  name="register"
+                  id="flexRadioDefault2"
+                  vlaue="ngo"
+                  onChange={(e) => setUser(false)}
+                />
+                <label class="form-check-label chk_lbl" for="flexRadioDefault2">
+                  NGO
+                </label>
+              </div>
+            </div>
+          </div>
+
           <form onSubmit={handleFormSubmit}>
+            {/* <label class="log-switch">
+              <span style={{ color: "black", marginRight: "10px" }}>User</span>
+              <input type="checkbox" onChange={(e) => setUser(false)} />
+              <span class="log-slider"></span>
+
+              <span style={{ color: "black", marginLeft: "10px" }}>NGO</span>
+            </label> */}
             <div className="l-form-field">
               <TextField
                 id="input-with-icon-textfield"
@@ -152,7 +209,6 @@ const Login = () => {
                 label="Email"
                 name="email"
                 onChange={handleInputChange}
-                required
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -171,7 +227,7 @@ const Login = () => {
               <TextField
                 id="input-with-icon-textfield"
                 label="Password"
-                required
+                // required
                 name="password"
                 onChange={handleInputChange}
                 InputProps={{

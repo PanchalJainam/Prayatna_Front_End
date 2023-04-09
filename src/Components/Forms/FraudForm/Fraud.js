@@ -46,22 +46,22 @@ const Fraud = () => {
   );
 
   const [data, setData] = useState({
-    ngo_name: "",
     email: "",
     message: "",
     activity: "",
+    address: "",
   });
 
   const [searchParams, setSearchParams] = useSearchParams();
   const ngo_id = searchParams.get("ngo_id");
+  console.log({ searchParams });
 
   const { state } = useGlobalContext();
-  console.log({ state });
 
   useEffect(() => {
     if (state?.userData?._id) {
       axios
-        .get(`http://localhost:5000/regngos/${state.userData._id}`)
+        .get(`http://localhost:5000/regngos/${ngo_id}`)
         .then((res) => {
           console.log({ res });
           setData(res.data);
@@ -70,6 +70,7 @@ const Fraud = () => {
     }
   }, [state]);
 
+  console.log({ state });
   console.log({ data });
 
   const handleInputChange = (e) => {
@@ -80,11 +81,20 @@ const Fraud = () => {
   };
 
   const validation = () => {
-    if (data?.ngo_name === "") {
+    console.log(data.message);
+    if (data?.message === undefined) {
+      // console.log();
+
       setMessage({
         open: true,
         message: "All Fields Must Be Required",
-        status: "erroe",
+        status: "error",
+      });
+    } else {
+      setMessage({
+        open: true,
+        message: "Message Send Successfully",
+        status: "success",
       });
     }
   };
@@ -94,6 +104,7 @@ const Fraud = () => {
     validation();
     try {
       const res = await axios.post("/report", {
+        ...data,
         user_id: state.userData._id,
         ngo_id,
       });
@@ -148,6 +159,7 @@ const Fraud = () => {
                 type="address"
                 className="fraud_form-control"
                 placeholder="Address"
+                value={data?.address}
                 onChange={handleInputChange}
               />
             </div>
@@ -156,7 +168,8 @@ const Fraud = () => {
                 name="activity"
                 type="text"
                 className="fraud_form-control"
-                placeholder="Ngo activity"
+                placeholder="activity"
+                value={data?.activity}
                 onChange={handleInputChange}
               />
             </div>

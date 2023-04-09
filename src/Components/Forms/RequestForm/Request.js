@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Request.css";
 import FormImage from "../../../Images/requestImage.jpg";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useGlobalContext } from "../../../context/GlobalContext";
 import axios from "axios";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
@@ -9,36 +9,47 @@ import { Alert, Button, IconButton, Snackbar } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Form = () => {
-  const [user, setUser] = useState({
-    user_name: "",
-    email: "",
-    message: "",
-    contact: "",
-  });
+  // const [user, setUser] = useState();
+  const navigate = useNavigate();
   const [message, setMessage] = useState({
     open: false,
     message: "",
     status: "",
   });
 
+  const [data, setData] = useState({
+    user_name: "",
+    email: "",
+    message: "",
+    contact_number: "",
+  });
+
+  const { state } = useGlobalContext();
+  useEffect(() => {
+    if (state?.userData?._id) {
+      axios
+        .get(`http://localhost:5000/reguser/${state.userData._id}`)
+        .then((res) => setData(res.data))
+        .catch((e) => console.log(e));
+    }
+  }, [state]);
+
   const [searchParams, setSearchParams] = useSearchParams();
   const ngo_id = searchParams.get("ngo_id");
 
-  const { state } = useGlobalContext();
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setUser((prev) => {
+    setData((prev) => {
       return { ...prev, [name]: value };
     });
   };
 
   const validation = () => {
     if (
-      user.user_name === "" ||
-      user.email === "" ||
-      user.message === "" ||
-      user.contact === ""
+      data.email === "" ||
+      data.user_name === "" ||
+      data.message === "" ||
+      data.contact_number === ""
     ) {
       setMessage({
         open: true,
@@ -46,8 +57,8 @@ const Form = () => {
         status: "error",
       });
     } else if (
-      parseInt(user.contact.length) > 10 ||
-      parseInt(user.contact.length) < 10
+      parseInt(data.contact_number.length) > 10 ||
+      parseInt(data.contact_number.length) < 10
     ) {
       setMessage({
         open: true,
@@ -63,11 +74,12 @@ const Form = () => {
     validation();
     try {
       const res = await axios.post("/request", {
-        ...user,
+        ...data,
         user_id: state.userData._id,
         ngo_id,
       });
       console.log(res);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -122,6 +134,7 @@ const Form = () => {
                 className="req_form-control"
                 placeholder="Enter Your Name"
                 name="user_name"
+                value={data.user_name}
                 onChange={handleInputChange}
               />
             </div>
@@ -131,6 +144,7 @@ const Form = () => {
                 class="req_form-control"
                 name="email"
                 placeholder="Enter Your Email"
+                value={data.email}
                 onChange={handleInputChange}
               />
             </div>
@@ -139,8 +153,9 @@ const Form = () => {
                 type="text"
                 className="req_form-control"
                 placeholder="Mobile No"
-                name="contact"
+                name="contact_number"
                 maxLength={10}
+                value={data.contact_number}
                 onChange={handleInputChange}
               />
             </div>

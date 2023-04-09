@@ -80,10 +80,10 @@ const SliderCard = () => {
   return (
     <>
       <div className="sl_title mt-5 py-5">
-        <h1 className="h1">Helping Hands</h1>
-        <p>
-         You can find Different types of activities related NGOs
-        </p>
+        <h1 className="h1_title" sx={{ color: "#13005A" }}>
+          Helping Hands
+        </h1>
+        <p>You can find Different types of activities related NGOs</p>
       </div>
       <div
         style={{
@@ -103,7 +103,7 @@ const SliderCard = () => {
           <Slider {...settings}>
             {cards.map((card, i) => (
               <div className="sl_imageContainer">
-               <h2 className="h2 text-center">{card.title}</h2>
+                <h2 className="h2 text-center">{card.title}</h2>
                 <img className="sl_image" src={card.image} alt={card.title} />
                 <p className="text-center">{card.content}</p>
               </div>
