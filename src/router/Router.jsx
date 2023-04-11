@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home.js";
 import About from "../Pages/About";
 import Contact from "../Components/Contact Us/Contact";
+import ForgotPasswordForm from "../Components/Forms/ForgetPasswordForm/Forgot.jsx";
 // import Signup from "../Pages/Signup";
 // import SignIn from "../Pages/SignIn";
 // import SignIn from "../Pages/SignIn";
@@ -61,6 +62,9 @@ export const Router = () => {
           </Route>
           <Route path="/user-request">
             <Route index element={<UserRequest />} />
+          </Route>
+          <Route path="/forgot">
+            <Route index element={<ForgotPasswordForm />} />
           </Route>
           {/* <Route path="/volunteer">
             <Route

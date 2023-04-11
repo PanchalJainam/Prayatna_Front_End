@@ -259,7 +259,7 @@ const Login = () => {
               >
                 Login
               </Button>
-              <Link className="l-forgot-password" to="/ngologin/forgot">
+              <Link className="l-forgot-password" to="/forgot">
                 Forgot Password?
               </Link>
             </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import "./NgoCard.css";
+import { Link } from "react-router-dom";
 
 const NgoCard = ({ ngo }) => {
   return (
@@ -17,18 +18,18 @@ const NgoCard = ({ ngo }) => {
                     <p className="card-text">{activity}</p>
                     <p className="card-text">{address}</p>
                     <div className="btn_div">
-                      <a
-                        href={`/search/request?ngo_id=${_id}`}
+                      <Link
+                        to={`/search/request?ngo_id=${_id}`}
                         className="btn btn-primary ngo_btn"
                       >
                         Send Request
-                      </a>
-                      <a
-                        href={`/search/report?ngo_id=${_id}`}
+                      </Link>
+                      <Link
+                        to={`/search/report?ngo_id=${_id}`}
                         className="btn btn-primary m-1 ngo_btn"
                       >
                         Fraud Report
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
