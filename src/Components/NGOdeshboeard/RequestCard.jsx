@@ -21,21 +21,21 @@ const RequestCard = (props) => {
 
   useEffect(() => {
     setRequestData();
-  });
+  }, []);
 
-  const accepted = (_id) => {
+  const accepted = (_id, email) => {
     axios
       .put(`http://localhost:5000/request-accept/${_id}`, {
-        email: state.userData.email,
+        email: email,
       })
       .then((res) => setRequestData())
       .catch((e) => console.log(e));
   };
 
-  const rejected = (_id) => {
+  const rejected = (_id, email) => {
     axios
       .put(`http://localhost:5000/request-rejected/${_id}`, {
-        email: state.userData.email,
+        email: email,
       })
       .then((res) => setRequestData())
       .catch((e) => console.log(e));
@@ -74,7 +74,7 @@ const RequestCard = (props) => {
       <div className="container">
         <div className="row">
           {data.map((curNgo) => {
-            const { _id, user_name, status, time, message } = curNgo;
+            const { _id, user_name, status, time, message, email } = curNgo;
             return (
               <div className="col-12 col-sm-6 col-lg-4">
                 <div className="card shadow mb-3" key={_id}>
@@ -100,13 +100,13 @@ const RequestCard = (props) => {
                     {/* <p className="card-text">{address}</p> */}
                     <button
                       className="btn btn-primary"
-                      onClick={() => accepted(_id)}
+                      onClick={() => accepted(_id, email)}
                     >
                       Accept Request
                     </button>
                     <button
                       className="btn btn-primary ms-1 btn-danger"
-                      onClick={() => rejected(_id)}
+                      onClick={() => rejected(_id, email)}
                     >
                       Decline Request
                     </button>
