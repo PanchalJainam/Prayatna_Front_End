@@ -7,11 +7,11 @@ import Navbar from "../Navbar/Navbar";
 const Contact = () => {
   return (
     <>
-      <Navbar />
-      <div className="contact_container mt-5">
-        <div className="contactus_title">
-          <h1>Contact Us</h1>
-        </div>
+      {/* <Navbar /> */}
+      <div className="contactus_title">
+        <h1>Contact Us</h1>
+      </div>
+      <div className="contact_container mt-5 mb-4">
         <div className="contact_content">
           <div class="contact_left-side">
             <div class="con_address con_details">

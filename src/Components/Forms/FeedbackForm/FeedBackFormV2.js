@@ -7,6 +7,7 @@ import FeedbackImage from "../../../Images/FeedbackImage.jpg";
 // import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import { useGlobalContext } from "../../../context/GlobalContext";
 import axios from "axios";
+// import { Link } from "react-router-dom";
 
 const Feedbackform = () => {
   const [value, setValue] = React.useState(0); // for rating
@@ -95,6 +96,17 @@ const Feedbackform = () => {
     <>
       <div className="feedback_wrapper">
         <div className="feed_inner">
+          {/* <Link to="/search">
+            <KeyboardBackspaceIcon
+              style={{
+                position: "relative",
+                left: "20px",
+                top: "30px",
+                fontSize: "30px",
+                color: "black",
+              }}
+            />
+          </Link> */}
           <div className="feed_image-holder">
             <img src={FeedbackImage} alt="" />
           </div>

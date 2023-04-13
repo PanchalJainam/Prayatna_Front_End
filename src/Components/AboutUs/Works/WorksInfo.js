@@ -2,8 +2,8 @@ import React from "react";
 import "./WorksInfo.css";
 import Info_image from "../../../Images/HeroImage-removebg-preview.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "@mui/material";
-
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 const Info = () => {
   return (
     <>
@@ -36,10 +36,11 @@ const Info = () => {
               cause and their dedication to making a difference in the lives of
               children.
             </p>
-            <Link to="contact" smooth={true} spy={true}>
-              <button type="button" class="work_btn btn-secondary btn-sm">
+            <Link to="/showfeedback">
+              {/* <button type="button" class="work_btn btn-secondary btn-sm">
                 MORE ACTIVITY
-              </button>
+              </button> */}
+              <Button variant="contained">FeedBack</Button>
             </Link>
           </div>
           <div className="col-sm-12 col-lg-6 col-12 p-4 ">

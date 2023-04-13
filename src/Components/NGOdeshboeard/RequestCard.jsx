@@ -6,6 +6,9 @@ import axios from "axios";
 import { Button } from "@mui/material";
 import HistoryIcon from "@mui/icons-material/History";
 import { Link } from "react-router-dom";
+import DateRangeIcon from "@mui/icons-material/DateRange";
+import CallIcon from "@mui/icons-material/Call";
+import HelpIcon from "@mui/icons-material/Help";
 const RequestCard = (props) => {
   const [data, setData] = useState([]);
   const { state, setState } = useGlobalContext();
@@ -56,7 +59,7 @@ const RequestCard = (props) => {
         </div>
       </div> */}
       <div className="pre_history_req">
-        <Link to="/historydata">
+        <Link to="/historydata" style={{ textDecoration: "none" }}>
           <Button
             variant="contained"
             sx={{
@@ -74,14 +77,22 @@ const RequestCard = (props) => {
       <div className="container">
         <div className="row">
           {data.map((curNgo) => {
-            const { _id, user_name, status, time, message, email } = curNgo;
+            const {
+              _id,
+              user_name,
+              status,
+              time,
+              message,
+              email,
+              contact_number,
+            } = curNgo;
             return (
               <div className="col-12 col-sm-6 col-lg-4">
                 <div className="card shadow mb-3" key={_id}>
                   {/* <img className="ngo_img" src={pic} alt="Card" /> */}
                   <div className="card-body">
                     <span
-                      className="fa user_icon fa-user d-flex"
+                      className="fa user_icon fa-user d-flex ms-1"
                       aria-hidden="true"
                     >
                       <h4 className="card-title d-flex reqcard_title">
@@ -89,13 +100,22 @@ const RequestCard = (props) => {
                       </h4>
                     </span>
                     <p className="card-text">
-                      <b>Date:</b> {time}
+                      <b>
+                        <DateRangeIcon sx={{ marginRight: "10px" }} />
+                      </b>
+                      {time}
                     </p>
                     <p className="card-text">
-                      <b>Status:</b> {status}
+                      <b>
+                        <CallIcon sx={{ marginRight: "10px" }} />
+                      </b>
+                      {contact_number}
                     </p>
                     <p className="card-text">
-                      <b>Need:</b> {message}
+                      <b>
+                        <HelpIcon sx={{ marginRight: "10px" }} />
+                      </b>
+                      {message}
                     </p>
                     {/* <p className="card-text">{address}</p> */}
                     <button
