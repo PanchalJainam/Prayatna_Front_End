@@ -13,9 +13,11 @@
   background-position: center;
   transform: scale(1.01);
 }
-/* .video-container {
-  /* border: 1px solid black; 
-} */
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* @media screen and (max-width: 780px) {
   .steps-container {
     display: block;
