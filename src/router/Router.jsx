@@ -4,10 +4,7 @@ import Home from "../Pages/Home.js";
 import About from "../Pages/About";
 import Contact from "../Components/Contact Us/Contact";
 import ForgotPasswordForm from "../Components/Forms/ForgetPasswordForm/Forgot.jsx";
-// import Signup from "../Pages/Signup";
-// import SignIn from "../Pages/SignIn";
-// import SignIn from "../Pages/SignIn";
-// import Card from "../Components/Card.jsx";
+import AdminDashboard from "../Pages/AdminDashboard";
 import Search from "../Components/Search/Search.jsx";
 import NgoLogin from "../Components/Login/NgoLogin";
 import Mydata from "../Components/NGOdeshboeard/Mydata.jsx";
@@ -24,7 +21,17 @@ import Volunteerapi from "../Components/Fetch-Api/VolunteerApi/Volunteerapi.js";
 import Historydata from "../Components/NGOdeshboeard/Historydata.jsx";
 import ShowNgo from "../Components/ShowNgo/ShowNgo.jsx";
 import { UserRequest } from "../Components/Userrequest/UserRequest.jsx";
-
+import User from "../Pages/User.js";
+import ALogin from "../Components/Admin/AdminLogin/Alogin";
+import Aregister from "../Components/Admin/AdminRegistrationForm/ARegistration.js";
+import Ngo from "../Pages/Ngo.js";
+import Request from "../Pages/Request.js";
+import Registration from "../Pages/Registration.js";
+import Feedback from "../Pages/Feedback.js";
+import Report from "../Pages/Report.js";
+import Afraud from "../Pages/Fraud.js";
+import Avolunteer from "../Pages/Volunteer.js";
+// import AdminDashboard from "../Pages/AdminDashboard";
 export const Router = () => {
   const { state, setState } = useGlobalContext();
   function checkLogin() {
@@ -110,6 +117,41 @@ export const Router = () => {
           </Route>
           <Route path="/search/request">
             <Route index element={checkLogin() ? <Req /> : <NgoLogin />} />
+          </Route>
+
+          {/* Admin Routes */}
+          <Route path="/admin-deshboard">
+            <Route index element={<AdminDashboard />} />
+          </Route>
+          <Route path="/deshboard/admin-login">
+            <Route index element={<ALogin />} />
+          </Route>
+          <Route path="/deshboard/admin-register">
+            <Route index element={<Aregister />} />
+          </Route>
+          <Route path="/deshboard/admin-user">
+            <Route index element={<User />} />
+          </Route>
+          <Route path="/deshboard/admin-ngo">
+            <Route index element={<Ngo />} />
+          </Route>
+          <Route path="/deshboard/admin-request">
+            <Route index element={<Request />} />
+          </Route>
+          <Route path="/deshboard/admin-feedback">
+            <Route index element={<Feedback />} />
+          </Route>
+          <Route path="/deshboard/admin-report">
+            <Route index element={<Report />} />
+          </Route>
+          <Route path="/deshboard/admin-fraud">
+            <Route index element={<Afraud />} />
+          </Route>
+          <Route path="/deshboard/admin-volunteer">
+            <Route index element={<Avolunteer />} />
+          </Route>
+          <Route path="/deshboard/admin-request">
+            <Route index element={<Request />} />
           </Route>
         </Routes>
       </BrowserRouter>

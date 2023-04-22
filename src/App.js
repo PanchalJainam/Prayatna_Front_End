@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 import { GlobalContext } from "./context/GlobalContext";
 import Router from "./router/Router";
 // import Volunteer from "./Components/Volunteer/Volunteer.jsx";

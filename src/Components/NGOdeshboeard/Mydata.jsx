@@ -45,7 +45,7 @@ const Mydata = () => {
           </div>
         </div>
       </div>
-      <RequestCard title="Pending Requests" />
+      <RequestCard title="Requests" />
       <MyActivity />
     </>
   );
