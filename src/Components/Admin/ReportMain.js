@@ -26,7 +26,7 @@ const ReportMain = () => {
 
     React.useEffect(() => {
         loadData();
-    }, [])
+    }, [reports])
 
 
     const handleFraud = async (id, email, address, activity, message) => {

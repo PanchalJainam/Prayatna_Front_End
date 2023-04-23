@@ -27,7 +27,7 @@ const ARegistration = () => {
     e.preventDefault();
     console.log({ otp });
 
-    const res = await axios.post("/verify-otp", {
+    const res = await axios.post("/admin/verify-otp", {
       email: regData.email,
       vOtp: otp,
     });
@@ -45,11 +45,12 @@ const ARegistration = () => {
         message: "Otp verified",
         status: "success",
       });
-      navigate("/login");
+      navigate("/deshboard/admin-login");
+      console.log("hello");
     } else {
       setMessage({
         open: true,
-        message: "Something went wrong...!",
+        message: "OTP Is Invalid...!",
         status: "error",
       });
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../Images/Prayatan.png";
+import { Button } from "@mui/material";
 const AdminHeader = () => {
   return (
     <>
@@ -28,6 +29,29 @@ const AdminHeader = () => {
               <span className="line line2"></span>
             </label>
           </div>
+        </div>
+        <div className="nav-item nav_login_btn">
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              aria-haspopup="true"
+              variant="container"
+              sx={{
+                color: "white",
+                // marginTop: "7px",
+                width: "auto",
+                border: "2px solid white",
+                borderRadius: "10px",
+                textDecoration: "none",
+              }}
+            >
+              Logout
+            </Button>
+          </Link>
         </div>
         <div className="admin_right">
           <h3>Admin</h3>

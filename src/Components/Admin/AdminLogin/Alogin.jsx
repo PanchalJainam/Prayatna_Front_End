@@ -61,7 +61,7 @@ const ALogin = () => {
           status: "error",
         });
       }
-      const res = await axios.post("/login", { email, password });
+      const res = await axios.post("/admin-login", { email, password });
 
       console.log({ res });
 
@@ -73,8 +73,8 @@ const ALogin = () => {
         });
         alert("Login Successfully");
         console.log({ res });
-        const { token, userData } = res.data;
-        localStorage.setItem("token", token);
+        // const { token } = res.data;
+        // localStorage.setItem("token", token);
         // let userType;
         // if (userData.ngo_name) {
         //   userType = "ngo";
@@ -85,10 +85,10 @@ const ALogin = () => {
         //   userType,
         //   userData,
         // });
-        navigate("/");
+        navigate("/admin-deshboard");
       } else {
         alert("User Not Registerd");
-        navigate("/login");
+        navigate("/deshboard/admin-login");
       }
     } catch (err) {
       if (err.response?.data?.error) {
@@ -212,6 +212,7 @@ const ALogin = () => {
             </div>
             <div className="l-link-container">
               <Button
+                type="submit"
                 variant="contained"
                 endIcon={<LoginIcon />}
                 sx={{

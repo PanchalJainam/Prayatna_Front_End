@@ -25,7 +25,7 @@ const VolunteerMain = () => {
 
     React.useEffect(() => {
         loadData();
-    }, [])
+    }, [volunteers])
 
     const handleDelete = async (id) => {
         const response = await axios.delete(`http://localhost:5000/volunteer/${id}`);

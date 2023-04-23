@@ -25,7 +25,7 @@ const RequestMain = () => {
 
   React.useEffect(() => {
     loadData();
-  }, []);
+  }, [req]);
 
   const handleDelete = async (id) => {
     const response = await axios.delete(`http://localhost:5000/request/${id}`);
